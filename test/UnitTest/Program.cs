@@ -13,7 +13,6 @@ namespace UnitTest
 #else
             new AutoRun().Execute(typeof(Program).GetTypeInfo().Assembly, Console.Out, Console.In, args);
 #endif
-            Console.ReadKey();
         }
     }
 }
