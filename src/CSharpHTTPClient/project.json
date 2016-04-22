@@ -1,0 +1,28 @@
+﻿{
+    "version": "1.0.2",
+    "description": "HTTP REST client, simplified for C Sharp",
+    "authors": [ "SendGrid" ],
+    "tags": [ "" ],
+    "projectUrl": "https://github.com/sendgrid/csharp-http-client",
+    "licenseUrl": "https://github.com/sendgrid/csharp-http-client/blob/master/LICENSE",
+
+    "frameworks": {
+        "dnx451": {
+            "frameworkAssemblies": {
+                "System": "",
+                "System.Net.Http": "",
+                "System.Web": "",
+                "System.Web.Extensions": "",
+                "Microsoft.CSharp": ""
+            }
+        },
+        "dotnet5.4": {
+            "dependencies": {
+                "Microsoft.AspNet.WebUtilities": "1.0.0-rc1-final",
+                "System.Net.Http": "4.0.1-beta-23516",
+                "Microsoft.CSharp": "4.0.1-beta-23516",
+                "Newtonsoft.Json": "6.0.6"
+            }
+        }
+    }
+}
