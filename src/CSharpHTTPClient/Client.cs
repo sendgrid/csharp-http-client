@@ -7,8 +7,13 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Script.Serialization;
+#if DNX451
 using System.Web;
+using System.Web.Script.Serialization;
+#else
+using Newtonsoft.Json;
+using Microsoft.AspNet.WebUtilities;
+#endif
 
 namespace SendGrid.CSharp.HTTP.Client
 {
@@ -38,8 +43,12 @@ namespace SendGrid.CSharp.HTTP.Client
         /// <returns>Dictionary object representation of HttpContent</returns>
         public virtual Dictionary<string, dynamic> DeserializeResponseBody(HttpContent content)
         {
+#if DNX451
             JavaScriptSerializer jss = new JavaScriptSerializer();
             var dsContent = jss.Deserialize<Dictionary<string, dynamic>>(content.ReadAsStringAsync().Result);
+#else
+            var dsContent = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(content.ReadAsStringAsync().Result);
+#endif
             return dsContent;
         }
 
@@ -64,7 +73,7 @@ namespace SendGrid.CSharp.HTTP.Client
     public class Client : DynamicObject
     {
         public string Host;
-        public Dictionary <string,string> RequestHeaders;
+        public Dictionary<string, string> RequestHeaders;
         public string Version;
         public string UrlPath;
         public string MediaType;
@@ -81,10 +90,10 @@ namespace SendGrid.CSharp.HTTP.Client
         /// <param name="version">API version, override AddVersion to customize</param>
         /// <param name="urlPath">Path to endpoint (e.g. /path/to/endpoint)</param>
         /// <returns>Fluent interface to a REST API</returns>
-        public Client(string host, Dictionary<string,string> requestHeaders = null, string version = null, string urlPath = null)
+        public Client(string host, Dictionary<string, string> requestHeaders = null, string version = null, string urlPath = null)
         {
             Host = host;
-            if(requestHeaders != null)
+            if (requestHeaders != null)
             {
                 AddRequestHeader(requestHeaders);
             }
@@ -111,7 +120,7 @@ namespace SendGrid.CSharp.HTTP.Client
         {
             string endpoint = null;
 
-            if( Version != null)
+            if (Version != null)
             {
                 endpoint = Host + "/" + Version + UrlPath;
             }
@@ -122,9 +131,14 @@ namespace SendGrid.CSharp.HTTP.Client
 
             if (queryParams != null)
             {
+#if DNX451
                 JavaScriptSerializer jss = new JavaScriptSerializer();
                 var ds_query_params = jss.Deserialize<Dictionary<string, dynamic>>(queryParams);
                 var query = HttpUtility.ParseQueryString(string.Empty);
+#else
+                var ds_query_params = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(queryParams);
+                var query = QueryHelpers.ParseQuery(string.Empty);
+#endif
                 foreach (var pair in ds_query_params)
                 {
                     query[pair.Key] = pair.Value.ToString();
@@ -218,7 +232,7 @@ namespace SendGrid.CSharp.HTTP.Client
                 return true;
             }
 
-            if( Enum.IsDefined(typeof(Methods), binder.Name.ToUpper()))
+            if (Enum.IsDefined(typeof(Methods), binder.Name.ToUpper()))
             {
                 string queryParams = null;
                 string requestBody = null;
@@ -284,7 +298,7 @@ namespace SendGrid.CSharp.HTTP.Client
 
                     // Build the request headers
                     client.DefaultRequestHeaders.Accept.Clear();
-                    if(RequestHeaders != null)
+                    if (RequestHeaders != null)
                     {
                         foreach (KeyValuePair<string, string> header in RequestHeaders)
                         {

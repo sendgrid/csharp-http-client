@@ -1,20 +1,28 @@
-﻿using System;
+﻿using SendGrid.CSharp.HTTP.Client;
+using System;
 using System.Collections.Generic;
-using SendGrid.CSharp.HTTP.Client;
+#if DNX451
 using System.Web.Script.Serialization;
+#else
+using Newtonsoft.Json;
+#endif
 
 // This is a working example, using the SendGrid API
 // You will need a SendGrid account and an active API Key
 // They key should be stored in an environment variable called SENDGRID_APIKEY
 namespace Example
 {
-    class Example
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             String host = "https://e9sk3d3bfaikbpdq7.stoplight-proxy.io";
             Dictionary<String, String> globalRequestHeaders = new Dictionary<String, String>();
+#if DNX451
             string apiKey = Environment.GetEnvironmentVariable("SENDGRID_APIKEY", EnvironmentVariableTarget.User);
+#else
+            string apiKey = "TODO";
+#endif
             globalRequestHeaders.Add("Authorization", "Bearer " + apiKey);
             globalRequestHeaders.Add("Content-Type", "application/json");
 
@@ -33,9 +41,9 @@ namespace Example
             // Console.WriteLine(response.ResponseHeaders.ToString());
 
             var dssResponseBody = response.DeserializeResponseBody(response.ResponseBody);
-            foreach ( var value in dssResponseBody["result"])
+            foreach (var value in dssResponseBody["result"])
             {
-                Console.WriteLine("name: {0}, api_key_id: {1}",value["name"], value["api_key_id"]);
+                Console.WriteLine("name: {0}, api_key_id: {1}", value["name"], value["api_key_id"]);
             }
 
             var dssResponseHeaders = response.DeserializeResponseHeaders(response.ResponseHeaders);
@@ -62,8 +70,12 @@ namespace Example
             Console.WriteLine(response.StatusCode);
             Console.WriteLine(response.ResponseBody.ReadAsStringAsync().Result);
             Console.WriteLine(response.ResponseHeaders.ToString());
+#if DNX451
             JavaScriptSerializer jss = new JavaScriptSerializer();
             var ds_response = jss.Deserialize<Dictionary<string, dynamic>>(response.ResponseBody.ReadAsStringAsync().Result);
+#else
+            var ds_response = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(response.ResponseBody.ReadAsStringAsync().Result);
+#endif
             string api_key_id = ds_response["api_key_id"];
 
             Console.WriteLine("\n\nPress any key to continue to GET single.");
