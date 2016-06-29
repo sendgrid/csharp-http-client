@@ -35,7 +35,7 @@ namespace Example
             }";
             Dictionary<String, String> requestHeaders = new Dictionary<String, String>();
             requestHeaders.Add("X-Test", "test");
-            dynamic response = client.version("v3").api_keys.get(queryParams: queryParams, requestHeaders: requestHeaders);
+            dynamic response = client.api_keys.get(queryParams: queryParams, requestHeaders: requestHeaders);
             // Console.WriteLine(response.StatusCode);
             // Console.WriteLine(response.ResponseBody.ReadAsStringAsync().Result);
             // Console.WriteLine(response.ResponseHeaders.ToString());

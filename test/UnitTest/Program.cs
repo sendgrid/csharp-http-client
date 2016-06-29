@@ -1,4 +1,5 @@
-﻿using NUnitLite;
+﻿using NUnit.Common;
+using NUnitLite;
 using System;
 using System.Reflection;
 
@@ -11,7 +12,8 @@ namespace UnitTest
 #if DNX451
             new AutoRun().Execute(args);
 #else
-            new AutoRun().Execute(typeof(Program).GetTypeInfo().Assembly, Console.Out, Console.In, args);
+            var writter = new ExtendedTextWrapper(Console.Out);
+            new AutoRun(typeof(Program).GetTypeInfo().Assembly).Execute(args, writter, Console.In);
 #endif
         }
     }

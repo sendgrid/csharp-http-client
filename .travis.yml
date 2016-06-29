@@ -1,21 +1,41 @@
 language: csharp
+
+#dotnet cli require Ubuntu 14.04
+sudo: required
+dist: trusty
+
+addons:
+  apt:
+    packages:
+    - gettext
+    - libcurl4-openssl-dev
+    - libicu-dev
+    - libssl-dev
+    - libunwind8
+    - zlib1g
+
+os:
+  - linux
+
 env:
-  matrix:
-    secure: KJrQ+NfmzlgCSXRyqeAMDGZUG6GO4/+xk1T0wGy1BgVz8seo/fDWL8osWEljB4Sj05sfFj7CM+rociwL6sdVyqCiHbCAM7XuHs58D+4Tlh5pGHL+G1qOl65/pDl0ulq+M7PwDxHPZ60/oyH2a16t5jtD9e4W31y2fXzEbHGLHXg=
-mono:
-  - latest
-install:
-  - curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh && source ~/.dnx/dnvm/dnvm.sh
-  - dnvm upgrade
-  - dnu restore
+  matrix: 
+    - CLI_VERSION=1.0.0-preview2-003121
+    - CLI_VERSION=Latest
+
+matrix:
+  allow_failures:
+    - env: CLI_VERSION=Latest
+
+before_install:
+  # Download script to install dotnet cli
+  - if test "$CLI_OBTAIN_URL" == ""; then export CLI_OBTAIN_URL="https://raw.githubusercontent.com/dotnet/cli/rel/1.0.0-preview2/scripts/obtain/dotnet-install.sh"; fi
+  - curl -L --create-dirs $CLI_OBTAIN_URL -o ./scripts/obtain/install.sh
+  - find ./scripts -name "*.sh" -exec chmod +x {} \;
+  - export DOTNET_INSTALL_DIR="$PWD/.dotnetcli"
+  # use bash to workaround bug https://github.com/dotnet/cli/issues/1725
+  - sudo bash ./scripts/obtain/install.sh --channel "preview" --version "$CLI_VERSION" --install-dir "$DOTNET_INSTALL_DIR" --no-path
+  # add dotnet to PATH
+  - export PATH="$DOTNET_INSTALL_DIR:$PATH"
+
 script:
-  - dnx -p ./test/UnitTest/project.json test
-notifications:
-  hipchat:
-    rooms:
-      secure: T8r/eNzevZXJDmSK7ZKG+t/Vx0cENHIMWVuKbt3RSYbXl6QsWv8UTPamFSkLP0zbcCyGQ7d+QKaEc18ffCtiBV9MXPy8Q1XFGzKxr5/GnwMx4p0ArTqbFLCyl3JuXBmCGouWG+ulb9eOGUFc6L/4p2cwAfXf2oTcXYqosBnfoHg=
-    template:
-    - '<a href="https://travis-ci.org/%{repository}/builds/%{build_id}">%{repository}
-      Build %{build_number}</a> on branch <i>%{branch}</i> by %{author}: <strong>%{message}</strong>
-      <a href="https://github.com/%{repository}/commits/%{commit}">View on GitHub</a>'
-    format: html
+  - ./build.sh

@@ -7,12 +7,12 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-#if DNX451
+#if NET45
 using System.Web;
 using System.Web.Script.Serialization;
 #else
 using Newtonsoft.Json;
-using Microsoft.AspNet.WebUtilities;
+using Microsoft.AspNetCore.WebUtilities;
 #endif
 
 namespace SendGrid.CSharp.HTTP.Client
@@ -43,7 +43,7 @@ namespace SendGrid.CSharp.HTTP.Client
         /// <returns>Dictionary object representation of HttpContent</returns>
         public virtual Dictionary<string, dynamic> DeserializeResponseBody(HttpContent content)
         {
-#if DNX451
+#if NET45
             JavaScriptSerializer jss = new JavaScriptSerializer();
             var dsContent = jss.Deserialize<Dictionary<string, dynamic>>(content.ReadAsStringAsync().Result);
 #else
@@ -131,7 +131,7 @@ namespace SendGrid.CSharp.HTTP.Client
 
             if (queryParams != null)
             {
-#if DNX451
+#if NET45
                 JavaScriptSerializer jss = new JavaScriptSerializer();
                 var ds_query_params = jss.Deserialize<Dictionary<string, dynamic>>(queryParams);
                 var query = HttpUtility.ParseQueryString(string.Empty);
@@ -176,7 +176,7 @@ namespace SendGrid.CSharp.HTTP.Client
         /// <summary>
         ///     Add the authorization header, override to customize
         /// </summary>
-        /// <param name="header">Authoriztion header</param>
+        /// <param name="header">Authorization header</param>
         /// <returns>Authorization value to add to the header</returns>
         public virtual AuthenticationHeaderValue AddAuthorization(KeyValuePair<string, string> header)
         {
@@ -275,7 +275,7 @@ namespace SendGrid.CSharp.HTTP.Client
         /// <returns>Response object</returns>
         public async virtual Task<Response> MakeRequest(HttpClient client, HttpRequestMessage request)
         {
-            HttpResponseMessage response = await client.SendAsync(request);
+            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             return new Response(response.StatusCode, response.Content, response.Headers);
         }
 
@@ -332,7 +332,7 @@ namespace SendGrid.CSharp.HTTP.Client
                         RequestUri = new Uri(endpoint),
                         Content = content
                     };
-                    return await MakeRequest(client, request);
+                    return await MakeRequest(client, request).ConfigureAwait(false);
 
                 }
                 catch (Exception ex)

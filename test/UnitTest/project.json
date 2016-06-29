@@ -1,32 +1,32 @@
 ﻿{
-    "version": "1.0.0-*",
-    "description": "UnitTest Console Application",
-    "authors": [ "SendGrid" ],
+  "version": "1.0.0-*",
+  "description": "UnitTest Console Application",
+  "authors": [ "SendGrid" ],
 
-    "compilationOptions": {
-        "emitEntryPoint": true
-    },
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
 
-    "dependencies": {
-        "CSharpHTTPClient": { },
-        "NUnitLite": "3.0.1"
-    },
-
-    "commands": {
-        "test": "UnitTest"
-    },
-
-    "frameworks": {
-        "dnx451": { },
-        "dotnet5.4": {
-            "dependencies": {
-                "Microsoft.CSharp": "4.0.1-beta-23516",
-                "System.Collections": "4.0.11-beta-23516",
-                "System.Linq": "4.0.1-beta-23516",
-                "System.Runtime": "4.0.21-beta-23516",
-                "System.Threading": "4.0.11-beta-23516",
-                "System.Console": "4.0.0-beta-23516"
-            }
-        }
+  "dependencies": {
+    "CSharpHTTPClient": "1.0.2",
+    "NUnitLite": "3.4.0",
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.0"
     }
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  },
+
+  "commands": {
+    "test": "UnitTest"
+  },
+
+  "tooling": {
+    "defaultNamespace": "UnitTest"
+  }
 }
