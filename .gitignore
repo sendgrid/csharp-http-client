@@ -1,0 +1,16 @@
+CSharpHTTPClient/CSharpHTTPClient.sln.DotSettings.user
+CSharpHTTPClient/bin/
+Example/bin/
+CSharpHTTPClient/obj/
+Example/obj/
+UnitTest/bin/
+UnitTest/obj/
+*.suo
+CSharpHTTPClient/*/bin/
+CSharpHTTPClient/*/obj/
+.DS_store
+CSharpHTTPClient/CSharpHTTPClient.userprefs
+CSharpHTTPClient/packages/
+CSharpHTTPClient/CSharpHTTPClient.sln.VisualState.xml
+*.PublicKey
+*.pfx
