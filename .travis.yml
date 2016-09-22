@@ -1,0 +1,20 @@
+language: csharp
+solution: CSharpHTTPClient/CSharpHTTPClient.sln
+env:
+  matrix:
+    secure: KJrQ+NfmzlgCSXRyqeAMDGZUG6GO4/+xk1T0wGy1BgVz8seo/fDWL8osWEljB4Sj05sfFj7CM+rociwL6sdVyqCiHbCAM7XuHs58D+4Tlh5pGHL+G1qOl65/pDl0ulq+M7PwDxHPZ60/oyH2a16t5jtD9e4W31y2fXzEbHGLHXg=
+install:
+- nuget restore CSharpHTTPClient/CSharpHTTPClient.sln
+- nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+script:
+- xbuild /p:Configuration=Release CSharpHTTPClient/CSharpHTTPClient.sln
+- mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe UnitTest/bin/Release/UnitTest.dll -domain:None
+notifications:
+  hipchat:
+    rooms:
+      secure: S6y3miMzrvRro+vhiuLjuyDm89l9mLbWbXT9Ak2fYorHWT+tGFrBQgoPB7veePkYkaIDAR5z+WF2amRnfKyesjdrLtJyDxAABKEV3X5ty1sIlaz+KK6QmEyK+krGUkUPAyM/7tZ1U7VDhXgxo0VNYhgT7jmFGQdLzupOdGZ7fI3/BA0kS8mDMNmIxjJyDhUama+P4ENCRMMYOs92McjCWBQe3Yss08gzBAzpnBQs5nBDyziz/Agevg2UVENwCiYX18hcz0xkoE84yKnSs+yrFdrK7fQR54k1wwM5yL3e0akw6BwdxoHcglIqxMIPHzZXAI77dxmDoZwjSCeT9H25FQ2wkIbjiduWhXsD+KFKDfmB3qc0HyU/ZPefUTkZBFtCQh18M0agNBvZ8IJaDDaNK6YnUVQ7RXpVy4TN8nRz4n5pv2w54QXjPtWVA1dU/iSzbKyAvhvourH6fTQs+rnLXzlJDpd96lYV6INNbobMpRAH40n8f/xljWpiwJmNK0QLlae8/RnijJ/nPOykA/ik75+ykxeebAqqvilO9ZKIPqtOR3ZEKmsFqDiOreQ3IVudZEEUj4mn8ysM5fFg1zfRpY6kL1iBhMZFHavRxtGXFIWcqtH1PYB7pi+c7oUAKHo6ntEk9KgQWDhEBXtRtTWGwvGS0lEKi3sNb0g3sZWhwtQ=
+    template:
+    - '<a href="https://travis-ci.org/%{repository}/builds/%{build_id}">%{repository}
+      Build %{build_number}</a> on branch <i>%{branch}</i> by %{author}: <strong>%{message}</strong>
+      <a href="https://github.com/%{repository}/commits/%{commit}">View on GitHub</a>'
+    format: html
