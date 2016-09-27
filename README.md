@@ -10,6 +10,12 @@ All updates to this project is documented in our [CHANGELOG](https://github.com/
 
 # Installation
 
+## Prerequisites
+
+- .NET version 4.5.2
+
+## Install Package
+
 To use CSharp.HTTP.Client in your C# project, you can either <a href="https://github.com/sendgrid/csharp-http-client.git">download the SendGrid C# .NET libraries directly from our Github repository</a> or, if you have the NuGet package manager installed, you can grab them automatically.
 
 ```
@@ -34,7 +40,7 @@ Here is a quick example:
 using SendGrid.CSharp.HTTP.Client;
 globalRequestHeaders.Add("Authorization", "Bearer XXXXXXX");
 dynamic client = new Client(host: baseUrl, requestHeaders: globalRequestHeaders);
-client.your.api._(param).call.get()
+var response = await client.your.api._(param).call.get()
 Console.WriteLine(response.StatusCode);
 Console.WriteLine(response.Body.ReadAsStringAsync().Result);
 Console.WriteLine(response.Headers.ToString());
@@ -44,12 +50,14 @@ Console.WriteLine(response.Headers.ToString());
 
 ```csharp
 using SendGrid.CSharp.HTTP.Client;
+using Newtonsoft.Json;
 globalRequestHeaders.Add("Authorization", "Bearer XXXXXXX");
 dynamic client = new Client(host: baseUrl, requestHeaders: globalRequestHeaders);
-string queryParams = "{'Hello': 0, 'World': 1}";
+string queryParams = @"{'Hello': 0, 'World': 1}";
 requestHeaders.Add("X-Test", "test");
-string requestBody = "{'some': 1, 'awesome': 2, 'data': 3}";
-var response = client.your.api._(param).call.post(requestBody: requestBody,
+string requestBody = @"{'some': 1, 'awesome': 2, 'data': 3}";
+Object json = JsonConvert.DeserializeObject<Object>(requestBody);
+var response = await client.your.api._(param).call.post(requestBody: json.ToString(),
                                                   queryParams: queryParams,
                                                   requestHeaders: requestHeaders)
 Console.WriteLine(response.StatusCode);

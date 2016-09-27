@@ -64,11 +64,11 @@ namespace UnitTest
         }
 
         [Test]
-        public void TestMethodCall()
+        public async void TestMethodCall()
         {
             var host = "http://api.test.com";
             dynamic test_client = new MockClient(host: host);
-            Response response = test_client.get();
+            Response response = await test_client.get();
             Assert.IsNotNull(response);
             Assert.AreEqual(response.StatusCode, HttpStatusCode.OK);
             var content = new StringContent("{'test': 'test_content'}", Encoding.UTF8, "application/json");
