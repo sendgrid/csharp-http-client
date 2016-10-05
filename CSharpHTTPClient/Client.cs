@@ -74,6 +74,8 @@ namespace SendGrid.CSharp.HTTP.Client
             DELETE, GET, PATCH, POST, PUT
         }
 
+        private int TimeoutDefault = 10;
+
         /// <summary>
         ///     REST API client.
         /// </summary>
@@ -92,7 +94,7 @@ namespace SendGrid.CSharp.HTTP.Client
             }
             Version = (version != null) ? version : null;
             UrlPath = (urlPath != null) ? urlPath : null;
-            Timeout = (timeOut != null) ? (TimeSpan)timeOut : TimeSpan.FromSeconds(10);
+            Timeout = (timeOut != null) ? (TimeSpan)timeOut : TimeSpan.FromSeconds(TimeoutDefault);
         }
 
         /// <summary>
