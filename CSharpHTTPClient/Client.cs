@@ -68,7 +68,11 @@ namespace SendGrid.CSharp.HTTP.Client
         public string Version;
         public string UrlPath;
         public string MediaType;
+<<<<<<< HEAD
         public TimeSpan Timeout; 
+=======
+        public TimeSpan Timeout;
+>>>>>>> a01c011e11a9159b01b7e9147adb4f612defe718
         public enum Methods
         {
             DELETE, GET, PATCH, POST, PUT
@@ -94,7 +98,11 @@ namespace SendGrid.CSharp.HTTP.Client
             }
             Version = (version != null) ? version : null;
             UrlPath = (urlPath != null) ? urlPath : null;
+<<<<<<< HEAD
             Timeout = (timeOut != null) ? (TimeSpan)timeOut : TimeSpan.FromSeconds(TimeoutDefault);
+=======
+            Timeout = (timeOut != null) ? (TimeSpan)timeOut : TimeSpan.FromSeconds(10);
+>>>>>>> a01c011e11a9159b01b7e9147adb4f612defe718
         }
 
         /// <summary>
