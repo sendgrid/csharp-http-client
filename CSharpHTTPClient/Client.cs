@@ -68,12 +68,17 @@ namespace SendGrid.CSharp.HTTP.Client
         public string Version;
         public string UrlPath;
         public string MediaType;
-        public WebProxy WebProxy;
+<<<<<<< HEAD
+        public TimeSpan Timeout; 
+=======
+        public TimeSpan Timeout;
+>>>>>>> a01c011e11a9159b01b7e9147adb4f612defe718
         public enum Methods
         {
             DELETE, GET, PATCH, POST, PUT
         }
 
+        private int TimeoutDefault = 10;
 
         /// <summary>
         ///     REST API client.
@@ -82,22 +87,9 @@ namespace SendGrid.CSharp.HTTP.Client
         /// <param name="requestHeaders">A dictionary of request headers</param>
         /// <param name="version">API version, override AddVersion to customize</param>
         /// <param name="urlPath">Path to endpoint (e.g. /path/to/endpoint)</param>
+        /// <param name="timeOut">Set an Timeout parameter for the HTTP Client</param>
         /// <returns>Fluent interface to a REST API</returns>
-        public Client(WebProxy webProxy, string host, Dictionary<string, string> requestHeaders = null, string version = null, string urlPath = null)
-            : this(host, requestHeaders, version, urlPath)
-        {
-            WebProxy = webProxy;
-        }
-
-        /// <summary>
-        ///     REST API client.
-        /// </summary>
-        /// <param name="host">Base url (e.g. https://api.sendgrid.com)</param>
-        /// <param name="requestHeaders">A dictionary of request headers</param>
-        /// <param name="version">API version, override AddVersion to customize</param>
-        /// <param name="urlPath">Path to endpoint (e.g. /path/to/endpoint)</param>
-        /// <returns>Fluent interface to a REST API</returns>
-        public Client(string host, Dictionary<string,string> requestHeaders = null, string version = null, string urlPath = null)
+        public Client(string host, Dictionary<string,string> requestHeaders = null, string version = null, string urlPath = null, TimeSpan? timeOut = null)
         {
             Host = host;
             if(requestHeaders != null)
@@ -106,6 +98,11 @@ namespace SendGrid.CSharp.HTTP.Client
             }
             Version = (version != null) ? version : null;
             UrlPath = (urlPath != null) ? urlPath : null;
+<<<<<<< HEAD
+            Timeout = (timeOut != null) ? (TimeSpan)timeOut : TimeSpan.FromSeconds(TimeoutDefault);
+=======
+            Timeout = (timeOut != null) ? (TimeSpan)timeOut : TimeSpan.FromSeconds(10);
+>>>>>>> a01c011e11a9159b01b7e9147adb4f612defe718
         }
 
         /// <summary>
@@ -171,30 +168,8 @@ namespace SendGrid.CSharp.HTTP.Client
             }
 
             UrlPath = null; // Reset the current object's state before we return a new one
-            return new Client(Host, RequestHeaders, Version, endpoint);
+            return new Client(Host, RequestHeaders, Version, endpoint, Timeout);
 
-        }
-
-        /// <summary>
-        /// Factory method to return the right HttpClient settings.
-        /// </summary>
-        /// <returns>Instance of HttpClient</returns>
-        private HttpClient BuildHttpClient()
-        {
-            // Add the WebProxy if set
-            if (WebProxy != null)
-            {
-                var httpClientHandler = new HttpClientHandler()
-                {
-                    Proxy = WebProxy,
-                    PreAuthenticate = true,
-                    UseDefaultCredentials = false,
-                };
-
-                return new HttpClient(httpClientHandler);
-            }
-
-            return new HttpClient();
         }
 
         /// <summary>
@@ -280,7 +255,7 @@ namespace SendGrid.CSharp.HTTP.Client
                     }
                     i++;
                 }
-                result = RequestAsync(binder.Name.ToUpper(), requestBody: requestBody, queryParams: queryParams).ConfigureAwait(false);
+                result = RequestAsync(binder.Name.ToUpper(), requestBody: requestBody, queryParams: queryParams).Result;
                 return true;
             }
             else
@@ -299,6 +274,7 @@ namespace SendGrid.CSharp.HTTP.Client
         /// <returns>Response object</returns>
         public async virtual Task<Response> MakeRequest(HttpClient client, HttpRequestMessage request)
         {
+
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             return new Response(response.StatusCode, response.Content, response.Headers);
         }
@@ -310,15 +286,17 @@ namespace SendGrid.CSharp.HTTP.Client
         /// <param name="requestBody">JSON formatted string</param>
         /// <param name="queryParams">JSON formatted queary paramaters</param>
         /// <returns>Response object</returns>
-        private async Task<Response> RequestAsync(string method, string requestBody = null, string queryParams = null)
+        private async Task<Response> RequestAsync(string method, String requestBody = null, String queryParams = null)
         {
-            using (var client = BuildHttpClient())
+            using (var client = new HttpClient())
             {
                 try
                 {
                     // Build the URL
                     client.BaseAddress = new Uri(Host);
+                    client.Timeout = Timeout;
                     string endpoint = BuildUrl(queryParams);
+
 
                     // Build the request headers
                     client.DefaultRequestHeaders.Accept.Clear();
@@ -346,7 +324,7 @@ namespace SendGrid.CSharp.HTTP.Client
                     StringContent content = null;
                     if (requestBody != null)
                     {
-                        content = new StringContent(requestBody, Encoding.UTF8, MediaType);
+                        content = new StringContent(requestBody.ToString().Replace("'", "\""), Encoding.UTF8, MediaType);
                     }
 
                     // Build the final request
