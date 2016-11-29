@@ -13,8 +13,7 @@ using System.Web;
 namespace SendGrid.CSharp.HTTP.Client
 {
     public class Response
-    {
-        private static HttpClient _httpClient = new HttpClient();
+    {      
         public HttpStatusCode StatusCode;
         public HttpContent Body;
         public HttpResponseHeaders Headers;
@@ -64,6 +63,7 @@ namespace SendGrid.CSharp.HTTP.Client
 
     public class Client : DynamicObject
     {
+        private static HttpClient _httpClient = new HttpClient();
         public string Host;
         public Dictionary <string,string> RequestHeaders;
         public string Version;
