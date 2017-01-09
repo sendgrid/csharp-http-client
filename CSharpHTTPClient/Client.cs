@@ -356,16 +356,15 @@ namespace SendGrid.CSharp.HTTP.Client
                         RequestUri = new Uri(endpoint),
                         Content = content
                     };
-                    return await MakeRequest(client, request).ConfigureAwait(false);
 
+                    return await MakeRequest(client, request).ConfigureAwait(false);
                 }
                 catch (Exception ex)
                 {
-                    HttpResponseMessage response = new HttpResponseMessage();
-                    string message;
-                    message = (ex is HttpRequestException) ? ".NET HttpRequestException" : ".NET Exception";
-                    message = message + ", raw message: \n\n";
-                    response.Content = new StringContent(message + ex.Message);
+                    var response = new HttpResponseMessage(HttpStatusCode.InternalServerError);
+                    var message = ex is HttpRequestException ? ".NET HttpRequestException" : ".NET Exception";
+                    response.Content = new StringContent($"{message}\n{ex}");
+
                     return new Response(response.StatusCode, response.Content, response.Headers);
                 }
             }
