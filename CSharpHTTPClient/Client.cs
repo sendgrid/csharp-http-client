@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Web;
+using System.Threading;
 
 namespace SendGrid.CSharp.HTTP.Client
 {
@@ -258,6 +259,7 @@ namespace SendGrid.CSharp.HTTP.Client
 
             if( Enum.IsDefined(typeof(Methods), binder.Name.ToUpper()))
             {
+                CancellationToken cancellationToken = CancellationToken.None;
                 string queryParams = null;
                 string requestBody = null;
                 int i = 0;
@@ -278,9 +280,13 @@ namespace SendGrid.CSharp.HTTP.Client
                     {
                         AddRequestHeader((Dictionary<string, string>)obj);
                     }
+                    else if (name == "cancellationToken")
+                    {
+                        cancellationToken = (CancellationToken)obj;
+                    }
                     i++;
                 }
-                result = RequestAsync(binder.Name.ToUpper(), requestBody: requestBody, queryParams: queryParams).ConfigureAwait(false);
+                result = RequestAsync(binder.Name.ToUpper(), cancellationToken, requestBody: requestBody, queryParams: queryParams).ConfigureAwait(false);
                 return true;
             }
             else
@@ -296,10 +302,11 @@ namespace SendGrid.CSharp.HTTP.Client
         /// </summary>
         /// <param name="client">Client object ready for communication with API</param>
         /// <param name="request">The parameters for the API call</param>
+        /// <param name="cancellationToken">A token that allows cancellation of the http request</param>
         /// <returns>Response object</returns>
-        public async virtual Task<Response> MakeRequest(HttpClient client, HttpRequestMessage request)
+        public async virtual Task<Response> MakeRequest(HttpClient client, HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
+            HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
             return new Response(response.StatusCode, response.Content, response.Headers);
         }
 
@@ -307,10 +314,11 @@ namespace SendGrid.CSharp.HTTP.Client
         ///     Prepare for async call to the API server
         /// </summary>
         /// <param name="method">HTTP verb</param>
+        /// <param name="cancellationToken">A token that allows cancellation of the http request</param>
         /// <param name="requestBody">JSON formatted string</param>
         /// <param name="queryParams">JSON formatted queary paramaters</param>
         /// <returns>Response object</returns>
-        private async Task<Response> RequestAsync(string method, string requestBody = null, string queryParams = null)
+        private async Task<Response> RequestAsync(string method, CancellationToken cancellationToken, string requestBody = null, string queryParams = null)
         {
             using (var client = BuildHttpClient())
             {
@@ -356,8 +364,12 @@ namespace SendGrid.CSharp.HTTP.Client
                         RequestUri = new Uri(endpoint),
                         Content = content
                     };
-                    return await MakeRequest(client, request).ConfigureAwait(false);
+                    return await MakeRequest(client, request, cancellationToken).ConfigureAwait(false);
 
+                }
+                catch(TaskCanceledException)
+                {
+                    throw;
                 }
                 catch (Exception ex)
                 {
