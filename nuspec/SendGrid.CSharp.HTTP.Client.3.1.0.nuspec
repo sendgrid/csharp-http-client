@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>SendGrid.CSharp.HTTP.Client</id>
+        <version>3.1.0</version>
+        <title>Fluent REST API Client</title>
+        <authors>Elmer Thomas,SendGrid DX Team</authors>
+        <licenseUrl>https://github.com/sendgrid/csharp-http-client/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/sendgrid/csharp-http-client</projectUrl>
+        <iconUrl>https://sendgrid.com/wp-content/themes/sgdotcom/pages/brand/2016/SendGrid-Logomark.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Quickly and easily access any REST or REST-like API using a fluent interface via method chaining and reflection.</description>
+        <summary>Quickly and easily access any REST or REST-like API.</summary>
+        <releaseNotes>### Added
+- [PR #18](https://github.com/sendgrid/csharp-http-client/pull/18): Cache default httpclient
+- Big thanks to [Niels Timmermans](https://github.com/nillis) for the pull request!</releaseNotes>
+        <copyright>Copyright 2017</copyright>
+        <language>en-US</language>
+        <tags>SendGrid Email API REST Fluent</tags>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.Web.Extensions" targetFramework="" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="..\CSharpHTTPClient\bin\Release\SendGrid.CSharp.HTTP.Client.dll" target="lib\SendGrid.CSharp.HTTP.Client.dll" />
+        <file src="..\CSharpHTTPClient\bin\Release\SendGrid.CSharp.HTTP.Client.dll.config" target="lib\SendGrid.CSharp.HTTP.Client.dll.config" />
+        <file src="..\CSharpHTTPClient\bin\Release\SendGrid.CSharp.HTTP.Client.pdb" target="lib\SendGrid.CSharp.HTTP.Client.pdb" />
+    </files>
+</package>
