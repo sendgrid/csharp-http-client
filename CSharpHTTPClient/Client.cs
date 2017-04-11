@@ -63,11 +63,13 @@ namespace SendGrid.CSharp.HTTP.Client
 
     public class Client : DynamicObject
     {
+        private static HttpClient _httpClient = new HttpClient();
         public string Host;
         public Dictionary <string,string> RequestHeaders;
         public string Version;
         public string UrlPath;
         public string MediaType;
+        public WebProxy WebProxy;
         public TimeSpan Timeout;
 
         public enum Methods
@@ -76,6 +78,21 @@ namespace SendGrid.CSharp.HTTP.Client
         }
 
         private int TimeoutDefault = 10;
+
+        /// <summary>
+        ///     REST API client.
+        /// </summary>
+        /// <param name="host">Base url (e.g. https://api.sendgrid.com)</param>
+        /// <param name="requestHeaders">A dictionary of request headers</param>
+        /// <param name="version">API version, override AddVersion to customize</param>
+        /// <param name="urlPath">Path to endpoint (e.g. /path/to/endpoint)</param>
+        /// <returns>Fluent interface to a REST API</returns>
+        public Client(WebProxy webProxy, string host, Dictionary<string, string> requestHeaders = null, string version = null, string urlPath = null)
+            : this(host, requestHeaders, version, urlPath)
+        {
+            WebProxy = webProxy;
+        }
+
 
         /// <summary>
         ///     REST API client.
@@ -164,6 +181,29 @@ namespace SendGrid.CSharp.HTTP.Client
             return new Client(Host, RequestHeaders, Version, endpoint, Timeout);
 
         }
+
+        /// Factory method to return the right HttpClient settings.
+        /// </summary>
+        /// <returns>Instance of HttpClient</returns>
+        private HttpClient BuildHttpClient()
+        {
+            // Add the WebProxy if set
+            if (WebProxy != null)
+            {
+                var httpClientHandler = new HttpClientHandler()
+                {
+                    Proxy = WebProxy,
+                    PreAuthenticate = true,
+                    UseDefaultCredentials = false,
+                };
+
+                return new HttpClient(httpClientHandler);
+            }
+
+            return _httpClient;
+        }
+
+        /// <summary>
 
         /// <summary>
         ///     Add the authorization header, override to customize
