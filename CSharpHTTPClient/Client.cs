@@ -288,7 +288,7 @@ namespace SendGrid.CSharp.HTTP.Client
                     }
                     i++;
                 }
-                result = RequestAsync(binder.Name.ToUpper(), requestBody: requestBody, queryParams: queryParams).Result;
+                result = RequestAsync(binder.Name.ToUpper(), requestBody: requestBody, queryParams: queryParams).ConfigureAwait(false);
                 return true;
             }
             else
@@ -357,7 +357,7 @@ namespace SendGrid.CSharp.HTTP.Client
                     StringContent content = null;
                     if (requestBody != null)
                     {
-                        content = new StringContent(requestBody.ToString().Replace("'", "\""), Encoding.UTF8, MediaType);
+                        content = new StringContent(requestBody, Encoding.UTF8, MediaType);
                     }
 
                     // Build the final request
