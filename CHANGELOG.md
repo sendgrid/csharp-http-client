@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.2.0] - 2017-04-11
+### Added
+- #23: Timeout Parameter
+- Big thanks to [PandaBoy00](https://github.com/PandaBoy00) for the pull request!
+
 ## [3.1.0] - 2017-03-01
 ### Added
 - [PR #18](https://github.com/sendgrid/csharp-http-client/pull/18): Cache default httpclient
