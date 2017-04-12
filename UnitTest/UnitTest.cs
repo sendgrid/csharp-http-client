@@ -26,6 +26,18 @@ namespace UnitTest
         }
     }
 
+    public class MockFailingClient : Client
+    {
+        public MockFailingClient(string host, Dictionary<string, string> requestHeaders = null, string version = null, string urlPath = null) : base(host, requestHeaders, version, urlPath)
+        {
+        }
+
+        public async override Task<Response> MakeRequest(HttpClient client, HttpRequestMessage request)
+        {
+            throw new HttpRequestException("Testing failures");
+        }
+    }
+
     [TestFixture]
     public class TestClient
     {
@@ -73,6 +85,17 @@ namespace UnitTest
             Assert.AreEqual(response.StatusCode, HttpStatusCode.OK);
             var content = new StringContent("{'test': 'test_content'}", Encoding.UTF8, "application/json");
             Assert.AreEqual(response.Body.ReadAsStringAsync().Result, content.ReadAsStringAsync().Result);
+        }
+
+        [Test]
+        public async void TestFailingMethodCall()
+        {
+            var host = "http://api.test.com";
+            dynamic test_client = new MockFailingClient(host: host);
+            Response response = await test_client.get();
+            Assert.IsNotNull(response);
+            Assert.AreEqual(response.StatusCode, HttpStatusCode.InternalServerError);
+            Assert.True(response.Body.ReadAsStringAsync().Result.Contains(".NET HttpRequestException"));
         }
     }
 }
