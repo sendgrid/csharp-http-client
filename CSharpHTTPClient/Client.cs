@@ -294,7 +294,7 @@ namespace SendGrid.CSharp.HTTP.Client
                     }
                     i++;
                 }
-                result = RequestAsync(binder.Name.ToUpper(), cancellationToken, requestBody: requestBody, queryParams: queryParams).ConfigureAwait(false);
+                result = RequestAsync(binder.Name.ToUpper(), requestBody: requestBody, queryParams: queryParams, cancellationToken: cancellationToken).ConfigureAwait(false);
                 return true;
             }
             else
@@ -312,10 +312,10 @@ namespace SendGrid.CSharp.HTTP.Client
         /// <param name="request">The parameters for the API call</param>
         /// <param name="cancellationToken">A token that allows cancellation of the http request</param>
         /// <returns>Response object</returns>
-        public async virtual Task<Response> MakeRequest(HttpClient client, HttpRequestMessage request, CancellationToken cancellationToken)
+        public async virtual Task<Response> MakeRequest(HttpClient client, HttpRequestMessage request, CancellationToken cancellationToken = default(CancellationToken))
         {
 
-            HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
+            HttpResponseMessage response = await client.SendAsync(request, cancellationToken).ConfigureAwait(false);
             return new Response(response.StatusCode, response.Content, response.Headers);
         }
 
@@ -327,7 +327,7 @@ namespace SendGrid.CSharp.HTTP.Client
         /// <param name="requestBody">JSON formatted string</param>
         /// <param name="queryParams">JSON formatted queary paramaters</param>
         /// <returns>Response object</returns>
-        private async Task<Response> RequestAsync(string method, String requestBody = null, String queryParams = null, CancellationToken cancellationToken = null)
+        private async Task<Response> RequestAsync(string method, String requestBody = null, String queryParams = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var client = new HttpClient())
             {
