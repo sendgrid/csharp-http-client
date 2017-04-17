@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SendGrid.CSharp.HTTP.Client</id>
-        <version>3.2.0</version>
+        <version>3.3.0</version>
         <title>Fluent REST API Client</title>
         <authors>Elmer Thomas,SendGrid DX Team</authors>
         <licenseUrl>https://github.com/sendgrid/csharp-http-client/blob/master/LICENSE</licenseUrl>
@@ -12,8 +12,8 @@
         <description>Quickly and easily access any REST or REST-like API using a fluent interface via method chaining and reflection.</description>
         <summary>Quickly and easily access any REST or REST-like API.</summary>
         <releaseNotes>### Added
-- #23: Timeout Parameter
-- Big thanks to [PandaBoy00](https://github.com/PandaBoy00) for the pull request!</releaseNotes>
+- #22: Added cancellation of requests using Cancellation Token
+- Big thanks to [aKzenT](https://github.com/aKzenT) for the pull request!</releaseNotes>
         <copyright>Copyright 2017</copyright>
         <language>en-US</language>
         <tags>SendGrid Email API REST Fluent</tags>

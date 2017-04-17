@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.3.0] - 2017-04-17
+### Added
+- #22: Added cancellation of requests using Cancellation Token
+- Big thanks to [aKzenT](https://github.com/aKzenT) for the pull request!
+
 ## [3.2.0] - 2017-04-11
 ### Added
 - #23: Timeout Parameter
