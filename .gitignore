@@ -14,3 +14,4 @@ CSharpHTTPClient/packages/
 CSharpHTTPClient/CSharpHTTPClient.sln.VisualState.xml
 *.PublicKey
 *.pfx
+project.lock.json
