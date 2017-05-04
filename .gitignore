@@ -12,6 +12,6 @@ CSharpHTTPClient/*/obj/
 CSharpHTTPClient/CSharpHTTPClient.userprefs
 CSharpHTTPClient/packages/
 CSharpHTTPClient/CSharpHTTPClient.sln.VisualState.xml
-*.pfx
 *.PublicKey
+*.pfx
 project.lock.json

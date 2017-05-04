@@ -37,7 +37,7 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly Condition="Exists('$(AssemblyOriginatorKeyFile)')">true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>csharphttpclient.pfx</AssemblyOriginatorKeyFile>
@@ -45,9 +45,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Net.Http.Formatting">
-      <HintPath>..\..\sendgrid-csharp\SendGrid\SendGrid\bin\Debug\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />

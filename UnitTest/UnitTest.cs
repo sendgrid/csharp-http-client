@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Text;
 using System.Net;
+using System.Threading;
 
 namespace UnitTest
 {
@@ -17,12 +18,19 @@ namespace UnitTest
         {
         }
 
-        public async override Task<Response> MakeRequest(HttpClient client, HttpRequestMessage request)
+        public override Task<Response> MakeRequest(HttpClient client, HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            HttpResponseMessage response = new HttpResponseMessage();
-            response.Content = new StringContent("{'test': 'test_content'}", Encoding.UTF8, "application/json");
-            response.StatusCode = HttpStatusCode.OK;
-            return new Response(response.StatusCode, response.Content, response.Headers);
+            return Task.Factory.StartNew(() =>
+            {
+
+                HttpResponseMessage response = new HttpResponseMessage();
+                response.Content = new StringContent("{'test': 'test_content'}", Encoding.UTF8, "application/json");
+                response.StatusCode = HttpStatusCode.OK;
+
+                cancellationToken.ThrowIfCancellationRequested();
+                
+                return new Response(response.StatusCode, response.Content, response.Headers);
+            }, cancellationToken);
         }
     }
 
@@ -64,15 +72,27 @@ namespace UnitTest
         }
 
         [Test]
-        public void TestMethodCall()
+        public async void TestMethodCall()
         {
             var host = "http://api.test.com";
             dynamic test_client = new MockClient(host: host);
-            Response response = test_client.get();
+            Response response = await test_client.get();
             Assert.IsNotNull(response);
             Assert.AreEqual(response.StatusCode, HttpStatusCode.OK);
             var content = new StringContent("{'test': 'test_content'}", Encoding.UTF8, "application/json");
-            Assert.AreEqual(response.ResponseBody.ReadAsStringAsync().Result, content.ReadAsStringAsync().Result);
+            Assert.AreEqual(response.Body.ReadAsStringAsync().Result, content.ReadAsStringAsync().Result);
+        }
+
+        [Test]
+        [ExpectedException(typeof(TaskCanceledException))]
+        public async void TestMethodCallWithCancellationToken()
+        {
+            var cancellationTokenSource = new CancellationTokenSource();
+            cancellationTokenSource.Cancel();
+
+            var host = "http://api.test.com";
+            dynamic test_client = new MockClient(host: host);
+            Response response = await test_client.get(cancellationToken: cancellationTokenSource.Token);
         }
     }
 }
