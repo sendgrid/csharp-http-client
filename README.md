@@ -1,13 +1,33 @@
+![SendGrid Logo](https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
+
 [![Travis Badge](https://travis-ci.org/sendgrid/csharp-http-client.svg?branch=master)](https://travis-ci.org/sendgrid/csharp-http-client)
+[![NuGet](https://img.shields.io/nuget/v/SendGrid.CSharp.Http.Client.svg)](https://www.nuget.org/packages/SendGrid.CSharp.HTTP.Client)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
+[![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
+[![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/csharp-http-client.svg)](https://github.com/sendgrid/csharp-http-client/graphs/contributors)
 
 **Quickly and easily access any RESTful or RESTful-like API.**
 
 If you are looking for the SendGrid API client library, please see [this repo](https://github.com/sendgrid/sendgrid-csharp).
 
+# Table of Contents
+
+* [Announcements](#announcements)
+* [Installation](#installation)
+* [Quick Start](#quick-start)
+* [Usage](#usage)
+* [Roadmap](#roadmap)
+* [How to Contribute](#contribute)
+* [Thanks](#thanks)
+* [About](#about)
+* [License](#license)
+
+<a name="announcements"></a>
 # Announcements
 
 All updates to this project is documented in our [CHANGELOG](https://github.com/sendgrid/csharp-http-client/blob/master/CHANGELOG.md).
 
+<a name="installation"></a>
 # Installation
 
 ## Prerequisites
@@ -30,6 +50,7 @@ Add the following namespace to use the library:
 using SendGrid.CSharp.HTTP.Client;
 ```
 
+<a name="quick-start"></a>
 # Quick Start
 
 Here is a quick example:
@@ -65,15 +86,18 @@ Console.WriteLine(response.Body.ReadAsStringAsync().Result);
 Console.WriteLine(response.Headers.ToString());
 ```
 
+<a name="usage"></a>
 # Usage
 
 - [Example Code](https://github.com/sendgrid/csharp-http-client/blob/master/Example/Example.cs)
 
-## Roadmap
+<a name="roadmap"></a>
+# Roadmap
 
 If you are interested in the future direction of this project, please take a look at our [milestones](https://github.com/sendgrid/csharp-http-client/milestones). We would love to hear your feedback.
 
-## How to Contribute
+<a name="contribute"></a>
+# How to Contribute
 
 We encourage contribution to our projects, please see our [CONTRIBUTING](https://github.com/sendgrid/csharp-http-client/blob/master/CONTRIBUTING.md) guide for details.
 
@@ -84,15 +108,17 @@ Quick links:
 - [Sign the CLA to Create a Pull Request](https://github.com/sendgrid/csharp-http-client/blob/master/CONTRIBUTING.md#cla)
 - [Improvements to the Codebase](https://github.com/sendgrid/csharp-http-client/blob/master/CONTRIBUTING.md#improvements_to_the_codebase)
 
+<a name="thanks"></a>
 # Thanks
 
 We were inspired by the work done on [birdy](https://github.com/inueni/birdy) and [universalclient](https://github.com/dgreisen/universalclient).
 
+<a name="about"></a>
 # About
 
 csharp-http-client is guided and supported by the SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
 
 csharp-http-client is maintained and funded by SendGrid, Inc. The names and logos for csharp-http-client are trademarks of SendGrid, Inc.
 
-![SendGrid Logo](https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
-
+# License
+[The MIT License (MIT)](LICENSE.txt)
