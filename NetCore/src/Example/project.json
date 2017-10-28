@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0-*",
+  "description": "Example Console Application",
+  "authors": [ "ecelletti" ],
+
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "SendGrid.CSharp.HTTP.Client": "1.0.0-*"
+  },
+
+  "commands": {
+    "Example": "Example"
+  },
+
+  "frameworks": {
+    "net451": {}
+  }
+}
