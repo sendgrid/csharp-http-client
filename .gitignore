@@ -14,3 +14,6 @@ CSharpHTTPClient/packages/
 CSharpHTTPClient/CSharpHTTPClient.sln.VisualState.xml
 *.PublicKey
 *.pfx
+
+# Environment files
+.env/*.*
