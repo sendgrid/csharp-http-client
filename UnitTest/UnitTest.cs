@@ -7,6 +7,8 @@ using System.Net.Http;
 using System.Text;
 using System.Net;
 using System.Threading;
+using System.IO;
+using System.Linq;
 
 namespace UnitTest
 {
@@ -93,6 +95,19 @@ namespace UnitTest
             var host = "http://api.test.com";
             dynamic test_client = new MockClient(host: host);
             Response response = await test_client.get(cancellationToken: cancellationTokenSource.Token);
+        }
+    }
+
+    [TestFixture]
+    public class TestRepositoryFiles
+    {
+        [Test]
+        public void TestLicenseEndYear()
+        {
+            var licensePath = Path.Combine("..", "..", "..", "LICENSE.txt");
+            string line = File.ReadLines(licensePath).Skip(2).Take(1).First();
+
+            Assert.AreEqual(DateTime.Now.Year.ToString(), line.Substring(19, 4));
         }
     }
 }
