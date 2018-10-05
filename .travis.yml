@@ -9,6 +9,13 @@ install:
 script:
 - xbuild /p:Configuration=Release CSharpHTTPClient/CSharpHTTPClient.sln
 - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe UnitTest/bin/Release/UnitTest.dll -domain:None
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: nuget push ./CSharpHTTPClient/bin/Release/*.nupkg
+  on:
+    branch: master
+    condition: '"x$NUGET_API_KEY" != "x" && "x$NUGET_SOURCE" != "x"'
 notifications:
   hipchat:
     rooms:
