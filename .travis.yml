@@ -15,7 +15,6 @@ deploy:
   script: nuget push ./CSharpHTTPClient/bin/Release/*.nupkg
   on:
     branch: master
-    condition: '"x$NUGET_API_KEY" != "x" && "x$NUGET_SOURCE" != "x"'
 notifications:
   hipchat:
     rooms:
