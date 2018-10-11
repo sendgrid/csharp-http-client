@@ -16,6 +16,7 @@ If you are looking for the SendGrid API client library, please see [this repo](h
 * [Installation](#installation)
 * [Quick Start](#quick-start)
 * [Library Usage Documentation](USAGE.md)
+* [Use Cases](#use-cases)
 * [Roadmap](#roadmap)
 * [How to Contribute](#contribute)
 * [Thanks](#thanks)
@@ -85,6 +86,12 @@ Console.WriteLine(response.StatusCode);
 Console.WriteLine(response.Body.ReadAsStringAsync().Result);
 Console.WriteLine(response.Headers.ToString());
 ```
+
+<a name="use-cases"></a>
+# Use Cases
+
+You can find a selection of use cases for this library in our [Use Cases](/UseCases/README.md) directory.
+
 <a name="roadmap"></a>
 # Roadmap
 
