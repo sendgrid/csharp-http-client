@@ -11,41 +11,49 @@ To make a pull request, follow these steps:
  
  3. __Clone__  your fork via the following commands:  
  
-  ```   
+  ```bash
     # Clone your fork of the repo into the current directory
     git clone https://github.com/your_username/csharp-http-client
-     # Navigate to the newly cloned directory
+
+    # Navigate to the newly cloned directory
     cd csharp-http-client
-     # Assign the original repo to a remote called "upstream"
+
+    # Assign the original repo to a remote called "upstream"
     git remote add upstream https://github.com/sendgrid/csharp-http-client
-  ``` 
-  > Don't forget to replace *your_username* in the URL by your real GitHub username.
- 
- 4. __Create a new topic branch__ (off the main project development branch) to
-   contain your feature, change, or fix:
- ```    
- git checkout -b <topic-branch-name>
-``` 
+
+```
+> Don't forget to replace *your_username* in the URL by your real GitHub username.
+
+4. __Create a new topic branch__ (off the main project development branch) to
+ contain your feature, change, or fix:
+```
+
+git checkout -b <topic-branch-name>
+
+```
   5. __Commit your changes__ in logical chunks. Please adhere to these [git commit
    message guidelines](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
    or your code is unlikely be merged into the main project. Use Git's
    [interactive rebase](https://help.github.com/articles/interactive-rebase)
    feature to tidy up your commits before making them public. Probably you will also have to create tests (if needed) or create or update the example code that demonstrates the functionality of this change to the code.
  6. __Locally merge (or rebase)__ the upstream development branch into your topic branch:
-  ```    
+```
+
     git pull [--rebase] upstream master
-   ``` 
-   
- 7. __Push__ your topic branch up to your fork:
-   ```    
-   git push origin <topic-branch-name>
-   ```
- 8. __[Open a Pull Request](https://help.github.com/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository/)__
-    with a clear title and description against the `master` branch. All tests must be passing before we will review the PR.
+
+```
+7. __Push__ your topic branch up to your fork:
+```
+
+git push origin <topic-branch-name>
+
+```
+8. __[Open a Pull Request](https://help.github.com/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository/)__
+ with a clear title and description against the `master` branch. All tests must be passing before we will review the PR.
 ### Important notice
- Before creating a pull request, make sure that you respect the repository's constraints regarding contributions. You can find them in the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
- ## Repositories with Open, Easy, Help Wanted, Issue Filters
- * [Python SDK](https://github.com/sendgrid/sendgrid-python/issues?utf8=%E2%9C%93&q=is%3Aopen+label%3A%22difficulty%3A+easy%22+label%3A%22status%3A+help+wanted%22)
+Before creating a pull request, make sure that you respect the repository's constraints regarding contributions. You can find them in the [CONTRIBUTING.md](./CONTRIBUTING.md) file.
+## Repositories with Open, Easy, Help Wanted, Issue Filters
+* [Python SDK](https://github.com/sendgrid/sendgrid-python/issues?utf8=%E2%9C%93&q=is%3Aopen+label%3A%22difficulty%3A+easy%22+label%3A%22status%3A+help+wanted%22)
 * [PHP SDK](https://github.com/sendgrid/sendgrid-php/issues?utf8=%E2%9C%93&q=is%3Aopen+label%3A%22difficulty%3A+easy%22+label%3A%22status%3A+help+wanted%22)
 * [C# SDK](https://github.com/sendgrid/sendgrid-csharp/issues?utf8=%E2%9C%93&q=is%3Aopen+label%3A%22difficulty%3A+easy%22+label%3A%22status%3A+help+wanted%22)
 * [Ruby SDK](https://github.com/sendgrid/sendgrid-ruby/issues?utf8=%E2%9C%93&q=is%3Aopen+label%3A%22difficulty%3A+easy%22+label%3A%22status%3A+help+wanted%22)
@@ -70,3 +78,4 @@ To make a pull request, follow these steps:
 * [Open API Definition](https://github.com/sendgrid/sendgrid-oai/issues?utf8=%E2%9C%93&q=is%3Aopen+label%3A%22difficulty%3A+easy%22+label%3A%22status%3A+help+wanted%22)
 * [DX Automator](https://github.com/sendgrid/dx-automator/issues?utf8=%E2%9C%93&q=is%3Aopen+label%3A%22difficulty%3A+easy%22+label%3A%22status%3A+help+wanted%22)
 * [Documentation](https://github.com/sendgrid/docs/issues?utf8=%E2%9C%93&q=is%3Aopen+label%3A%22difficulty%3A+easy%22+label%3A%22status%3A+help+wanted%22)
+```
