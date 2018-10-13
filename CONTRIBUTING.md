@@ -9,6 +9,7 @@ Hello! Thank you for choosing to help contribute to one of the SendGrid open sou
 - [Testing](#testing)
 - [Style Guidelines & Naming Conventions](#style-guidelines-and-naming-conventions)
 - [Creating a Pull Request](#creating-a-pull-request)
+- [Branch Workflow](#branch-naming-pattern)
 
 <a name="roadmap"></a>
 We use [Milestones](https://github.com/sendgrid/csharp-http-client/milestones) to help define current roadmaps, please feel free to grab an issue from the current milestone. Please indicate that you have begun work on it to avoid collisions. Once a PR is made, community review, comments, suggestions and additional PRs are welcomed and encouraged.
@@ -162,6 +163,19 @@ Generally, we follow the style guidelines as suggested by the official language.
    ```
 
 7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
-    with a clear title and description against the `master` branch. All tests must be passing before we will review the PR.
+    with a clear title and description against the `master` branch. All tests must be passing before we will review the PR.  
+### Please use our Pull Request Template
+We use a Pull Request Template also based on GitFlow WorkFlow branches. Check our template at 
+[Pull Request Template](PULL_REQUEST_TEMPLATE.md).
+
+<a name="branch-naming-pattern"></a>
+## Branch Workflow
+We are using GitFlow as our Workflow, so we ask you to use our branch naming pattern. Basically, it consists on 2 main branchs and 2 name patterns: 
+- We have the "master" branch, which is the production branch and the one that is available for using;
+- We also have the "development" branch, where all the new features are implemented and tested before going to a release to the "master" branch;
+- If you want to create a new feature, please fork from the "development" branch, create a new one using the pattern "feature/#number_of_the_issue" (e.g. "feature/#70") and make your normal pull request;
+- If you want to fix a bug that is already in production, create a new branch using the pattern "hotfix/#number_of_the_feature" (e.g. "hotfix/#90").
+
+If you want to learn more about the GitFlow, just access this [website](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). Just notice that we use "development" instead of "develop" as the branch's name. The "release" branchs will be made by the projects' maintainers.
 
 If you have any additional questions, please feel free to [email](mailto:dx@sendgrid.com) us or create an issue in this repo.
