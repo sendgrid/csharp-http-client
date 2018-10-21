@@ -6,6 +6,7 @@ Example/obj/
 UnitTest/bin/
 UnitTest/obj/
 *.suo
+*.user
 CSharpHTTPClient/*/bin/
 CSharpHTTPClient/*/obj/
 .DS_store
@@ -17,3 +18,4 @@ CSharpHTTPClient/CSharpHTTPClient.sln.VisualState.xml
 
 # Environment files
 .env/*.*
+.vs/
