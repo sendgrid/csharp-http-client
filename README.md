@@ -122,4 +122,4 @@ csharp-http-client is guided and supported by the SendGrid [Developer Experience
 csharp-http-client is maintained and funded by SendGrid, Inc. The names and logos for csharp-http-client are trademarks of SendGrid, Inc.
 
 # License
-[The MIT License (MIT)](LICENSE.txt)
+[The MIT License (MIT)](LICENSE.md)
