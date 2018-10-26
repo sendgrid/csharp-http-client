@@ -5,7 +5,7 @@
         <version>3.3.0</version>
         <title>Fluent REST API Client</title>
         <authors>Elmer Thomas,SendGrid DX Team</authors>
-        <licenseUrl>https://github.com/sendgrid/csharp-http-client/blob/master/LICENSE</licenseUrl>
+        <licenseUrl>https://github.com/sendgrid/csharp-http-client/blob/master/LICENSE.md</licenseUrl>
         <projectUrl>https://github.com/sendgrid/csharp-http-client</projectUrl>
         <iconUrl>https://sendgrid.com/wp-content/themes/sgdotcom/pages/brand/2016/SendGrid-Logomark.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
