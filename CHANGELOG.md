@@ -20,7 +20,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [3.0.0] - 2016-07-22
 ### BREAKING CHANGE
-- While your code may continue to work as before, the async behavior has changed, as we don't block on .Result anymore 
+- While your code may continue to work as before, the async behavior has changed, as we don't block on `Result` anymore 
 - Fixes [issue #259](https://github.com/sendgrid/sendgrid-csharp/issues/259) in the sendgrid-csharp library 
 - Updated examples and README to demonstrate await usage 
 
