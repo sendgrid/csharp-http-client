@@ -7,10 +7,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SendGrid.CSharp.HTTP.Client")]
 [assembly: AssemblyDescription("A Simple Fluent REST API Client.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("SendGrid")]
+[assembly: AssemblyCompany("Twilio SendGrid")]
 [assembly: AssemblyProduct("SendGrid.CSharp.HTTP.Client")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
-[assembly: AssemblyTrademark("SendGrid")]
+[assembly: AssemblyTrademark("Twilio SendGrid")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

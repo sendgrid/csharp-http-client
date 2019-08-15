@@ -5,9 +5,9 @@ using System.Web.Script.Serialization;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-// This is a working example, using the SendGrid API
-// You will need a SendGrid account and an active API Key
-// They key should be stored in an environment variable called SENDGRID_APIKEY
+// This is a working example, using the Twilio SendGrid API
+// You will need a Twilio SendGrid account and an active API Key
+// They key should be stored in an environment variable called SENDGRID_API_KEY
 namespace Example
 {
     class Example
@@ -21,7 +21,7 @@ namespace Example
         {
             String host = "https://e9sk3d3bfaikbpdq7.stoplight-proxy.io";
             Dictionary<String, String> globalRequestHeaders = new Dictionary<String, String>();
-            string apiKey = Environment.GetEnvironmentVariable("SENDGRID_APIKEY", EnvironmentVariableTarget.User);
+            string apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY", EnvironmentVariableTarget.User);
             globalRequestHeaders.Add("Authorization", "Bearer " + apiKey);
             globalRequestHeaders.Add("Content-Type", "application/json");
 
