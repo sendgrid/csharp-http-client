@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>SendGrid.CSharp.HTTP.Client</id>
+    <version>3.4.1</version>
+    <title>Fluent REST API Client</title>
+    <authors>Elmer Thomas,Twilio DX Team</authors>
+    <owners>Elmer Thomas,Sam Harrison,Twilio DX Team</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/sendgrid/csharp-http-client/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/sendgrid/csharp-http-client</projectUrl>
+    <iconUrl>https://github.com/sendgrid/sendgrid-python/raw/master/twilio_sendgrid_logo.png</iconUrl>
+    <description>Quickly and easily access any REST or REST-like API using a fluent interface via method chaining and reflection.</description>
+    <summary>Quickly and easily access any REST or REST-like API.</summary>
+    <releaseNotes>- [PR #90](https://github.com/sendgrid/csharp-http-client/pull/90): Twilio branding updates.</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <language>en-US</language>
+    <tags>Twilio SendGrid Email API REST Fluent</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Web.Extensions" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="lib\SendGrid.CSharp.HTTP.Client.dll" target="lib\SendGrid.CSharp.HTTP.Client.dll" />
+    <file src="lib\SendGrid.CSharp.HTTP.Client.dll.config" target="lib\SendGrid.CSharp.HTTP.Client.dll.config" />
+    <file src="lib\SendGrid.CSharp.HTTP.Client.pdb" target="lib\SendGrid.CSharp.HTTP.Client.pdb" />
+  </files>
+</package>
