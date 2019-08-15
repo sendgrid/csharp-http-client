@@ -1,10 +1,18 @@
-# Change Log
-All notable changes to this project will be documented in this file.
-
-This project adheres to [Semantic Versioning](http://semver.org/).
-
-## [3.4.0] - 2019-08-14
-### Added
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>SendGrid.CSharp.HTTP.Client</id>
+    <version>3.4.0</version>
+    <title>Fluent REST API Client</title>
+    <authors>Elmer Thomas,Twilio DX Team</authors>
+    <owners>Elmer Thomas,Sam Harrison,Twilio DX Team</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/sendgrid/csharp-http-client/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/sendgrid/csharp-http-client</projectUrl>
+    <iconUrl>https://github.com/sendgrid/sendgrid-python/raw/master/twilio_sendgrid_logo.png</iconUrl>
+    <description>Quickly and easily access any REST or REST-like API using a fluent interface via method chaining and reflection.</description>
+    <summary>Quickly and easily access any REST or REST-like API.</summary>
+    <releaseNotes>### Added
 - [PR #26](https://github.com/sendgrid/csharp-http-client/pull/26): Add a Code Of Conduct. Big thanks to [Henrik Bergqvist](https://github.com/hbbq) for the pull request!
 - [PR #31](https://github.com/sendgrid/csharp-http-client/pull/31): Update README.md - moved logo to top, added license and more badges. Big thanks to [Alex](https://github.com/pushkyn) for the pull request!
 - [PR #32](https://github.com/sendgrid/csharp-http-client/pull/32): Add more SEO Friendly Section links. Big thanks to [Alex](https://github.com/pushkyn) for the pull request!
@@ -31,59 +39,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - [PR #83](https://github.com/sendgrid/csharp-http-client/pull/83): Fix link to feature requests in the README. Big thanks to [Sanjay Singh](https://github.com/sanjaysingh) for the pull request!
 - [PR #82](https://github.com/sendgrid/csharp-http-client/pull/82): Fix location of LICENSE.md file. Big thanks to [Chandler Weiner](https://github.com/crweiner) for the pull request!
 - [PR #77](https://github.com/sendgrid/csharp-http-client/pull/77): Fix tests looking for wrong file type for License. Big thanks to [Anna](https://github.com/AnnaDodson) for the pull request!
-- [PR #70](https://github.com/sendgrid/csharp-http-client/pull/70): Corrected *.md files using Grammarly. Big thanks to [Alex](https://github.com/pushkyn) for the pull request!
-
-## [3.3.0] - 2017-04-17
-### Added
-- #22: Added cancellation of requests using Cancellation Token
-- Big thanks to [aKzenT](https://github.com/aKzenT) for the pull request!
-
-## [3.2.0] - 2017-04-11
-### Added
-- #23: Timeout Parameter
-- Big thanks to [PandaBoy00](https://github.com/PandaBoy00) for the pull request!
-
-## [3.1.0] - 2017-03-01
-### Added
-- [PR #18](https://github.com/sendgrid/csharp-http-client/pull/18): Cache default httpclient
-- Big thanks to [Niels Timmermans](https://github.com/nillis) for the pull request!
-
-## [3.0.0] - 2016-07-22
-### BREAKING CHANGE
-- While your code may continue to work as before, the async behavior has changed, as we don't block on `Result` anymore 
-- Fixes [issue #259](https://github.com/sendgrid/sendgrid-csharp/issues/259) in the sendgrid-csharp library 
-- Updated examples and README to demonstrate await usage 
-
-## [2.0.7] - 2016-07-19
-### Added
-- [Pull request #11](https://github.com/sendgrid/csharp-http-client/pull/11): Adding the option to set WebProxy object to be used on HttpClient 
-- Big thanks to [Juliano Nunes](https://github.com/julianonunes) for the pull request!
-
-## [2.0.6] - 2016-07-18
-### Added
-- Sign assembly with a strong name
-
-## [2.0.5] - 2016-07-14
-### Fixed
-- Solves [issue #7](https://github.com/sendgrid/csharp-http-client/issues/7)
-- Solves [issue #256](https://github.com/sendgrid/sendgrid-csharp/issues/256) in the SendGrid C# Client
-- Do not try to encode the JSON request payload by replacing single quotes with double quotes
-- Updated examples and README to use JSON.NET to encode the payload
-- Thanks to [Gunnar Liljas](https://github.com/gliljas) for helping identify the issue!
-
-## [2.0.2] - 2016-06-16
-### Added
-- Fix async, per https://github.com/sendgrid/sendgrid-csharp/issues/235
-
-## [2.0.1] - 2016-06-03
-### Added
-- Sign assembly with a strong name
-
-## [2.0.0] - 2016-06-03
-### Changed
-- Made the Response variables non-redundant. e.g. response.ResponseBody becomes response.Body
-
-## [1.0.2] - 2016-03-17
-### Added
-- We are live!
-
+- [PR #70](https://github.com/sendgrid/csharp-http-client/pull/70): Corrected *.md files using Grammarly. Big thanks to [Alex](https://github.com/pushkyn) for the pull request!</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <language>en-US</language>
+    <tags>Twilio SendGrid Email API REST Fluent</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Web.Extensions" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="lib\SendGrid.CSharp.HTTP.Client.dll" target="lib\SendGrid.CSharp.HTTP.Client.dll" />
+    <file src="lib\SendGrid.CSharp.HTTP.Client.dll.config" target="lib\SendGrid.CSharp.HTTP.Client.dll.config" />
+    <file src="lib\SendGrid.CSharp.HTTP.Client.pdb" target="lib\SendGrid.CSharp.HTTP.Client.pdb" />
+  </files>
+</package>
