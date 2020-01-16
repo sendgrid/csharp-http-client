@@ -3,15 +3,8 @@ solution: CSharpHTTPClient/CSharpHTTPClient.sln
 env:
   matrix:
     secure: KJrQ+NfmzlgCSXRyqeAMDGZUG6GO4/+xk1T0wGy1BgVz8seo/fDWL8osWEljB4Sj05sfFj7CM+rociwL6sdVyqCiHbCAM7XuHs58D+4Tlh5pGHL+G1qOl65/pDl0ulq+M7PwDxHPZ60/oyH2a16t5jtD9e4W31y2fXzEbHGLHXg=
-install:
-- nuget restore CSharpHTTPClient/CSharpHTTPClient.sln
-- nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
-- xbuild /p:Configuration=Release CSharpHTTPClient/CSharpHTTPClient.sln
-- mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe UnitTest/bin/Release/UnitTest.dll -domain:None
-- curl -s https://codecov.io/bash > .codecov
-- chmod +x .codecov
-- ./.codecov
+  - make test
 deploy:
   skip_cleanup: true
   provider: script
