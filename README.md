@@ -1,14 +1,14 @@
-![SendGrid Logo](https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
+![SendGrid Logo](https://github.com/sendgrid/sendgrid-python/raw/master/twilio_sendgrid_logo.png)
 
 [![Travis Badge](https://travis-ci.org/sendgrid/csharp-http-client.svg?branch=master)](https://travis-ci.org/sendgrid/csharp-http-client)
 [![NuGet](https://img.shields.io/nuget/v/SendGrid.CSharp.Http.Client.svg)](https://www.nuget.org/packages/SendGrid.CSharp.HTTP.Client)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 [![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
 [![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/csharp-http-client.svg)](https://github.com/sendgrid/csharp-http-client/graphs/contributors)
 
 **Quickly and easily access any RESTful or RESTful-like API.**
 
-If you are looking for the SendGrid API client library, please see [this repo](https://github.com/sendgrid/sendgrid-csharp).
+If you are looking for the Twilio SendGrid API client library, please see [this repo](https://github.com/sendgrid/sendgrid-csharp).
 
 # Table of Contents
 
@@ -16,6 +16,7 @@ If you are looking for the SendGrid API client library, please see [this repo](h
 * [Installation](#installation)
 * [Quick Start](#quick-start)
 * [Library Usage Documentation](USAGE.md)
+* [Use Cases](#use-cases)
 * [Roadmap](#roadmap)
 * [How to Contribute](#contribute)
 * [Thanks](#thanks)
@@ -25,7 +26,7 @@ If you are looking for the SendGrid API client library, please see [this repo](h
 <a name="announcements"></a>
 # Announcements
 
-All updates to this project is documented in our [CHANGELOG](https://github.com/sendgrid/csharp-http-client/blob/master/CHANGELOG.md).
+All updates to this project are documented in our [CHANGELOG](https://github.com/sendgrid/csharp-http-client/blob/master/CHANGELOG.md).
 
 <a name="installation"></a>
 # Installation
@@ -36,7 +37,7 @@ All updates to this project is documented in our [CHANGELOG](https://github.com/
 
 ## Install Package
 
-To use CSharp.HTTP.Client in your C# project, you can either <a href="https://github.com/sendgrid/csharp-http-client.git">download the SendGrid C# .NET libraries directly from our Github repository</a> or, if you have the NuGet package manager installed, you can grab them automatically.
+To use CSharp.HTTP.Client in your C# project, you can either <a href="https://github.com/sendgrid/csharp-http-client.git">download the Twilio SendGrid C# .NET libraries directly from our Github repository</a> or, if you have the NuGet package manager installed, you can grab them automatically.
 
 ```
 PM> Install-Package SendGrid.CSharp.Http.Client
@@ -85,6 +86,12 @@ Console.WriteLine(response.StatusCode);
 Console.WriteLine(response.Body.ReadAsStringAsync().Result);
 Console.WriteLine(response.Headers.ToString());
 ```
+
+<a name="use-cases"></a>
+# Use Cases
+
+You can find a selection of use cases for this library in our [Use Cases](/UseCases/README.md) directory.
+
 <a name="roadmap"></a>
 # Roadmap
 
@@ -97,7 +104,7 @@ We encourage contribution to our projects, please see our [CONTRIBUTING](https:/
 
 Quick links:
 
-- [Feature Request](https://github.com/sendgrid/csharp-http-client/blob/master/CONTRIBUTING.mdCONTRIBUTING.md#feature-request)
+- [Feature Request](https://github.com/sendgrid/csharp-http-client/blob/master/CONTRIBUTING.md#feature-request)
 - [Bug Reports](https://github.com/sendgrid/csharp-http-client/blob/master/CONTRIBUTING.md#submit-a-bug-report)
 - [Sign the CLA to Create a Pull Request](https://github.com/sendgrid/csharp-http-client/blob/master/CONTRIBUTING.md#cla)
 - [Improvements to the Codebase](https://github.com/sendgrid/csharp-http-client/blob/master/CONTRIBUTING.md#improvements-to-the-codebase)
@@ -110,9 +117,9 @@ We were inspired by the work done on [birdy](https://github.com/inueni/birdy) an
 <a name="about"></a>
 # About
 
-csharp-http-client is guided and supported by the SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
+csharp-http-client is guided and supported by the Twilio SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
 
-csharp-http-client is maintained and funded by SendGrid, Inc. The names and logos for csharp-http-client are trademarks of SendGrid, Inc.
+csharp-http-client is maintained and funded by Twilio SendGrid, Inc. The names and logos for csharp-http-client are trademarks of Twilio SendGrid, Inc.
 
 # License
-[The MIT License (MIT)](LICENSE.txt)
+[The MIT License (MIT)](LICENSE.md)
