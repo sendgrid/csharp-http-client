@@ -12,16 +12,12 @@ script:
 - curl -s https://codecov.io/bash > .codecov
 - chmod +x .codecov
 - ./.codecov
-
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: nuget push ./CSharpHTTPClient/bin/Release/*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
+  on:
+    branch: master
+    tags: true
 after_success:
-  - bash <(curl -s https://codecov.io/bash)  
-
-notifications:
-  hipchat:
-    rooms:
-      secure: S6y3miMzrvRro+vhiuLjuyDm89l9mLbWbXT9Ak2fYorHWT+tGFrBQgoPB7veePkYkaIDAR5z+WF2amRnfKyesjdrLtJyDxAABKEV3X5ty1sIlaz+KK6QmEyK+krGUkUPAyM/7tZ1U7VDhXgxo0VNYhgT7jmFGQdLzupOdGZ7fI3/BA0kS8mDMNmIxjJyDhUama+P4ENCRMMYOs92McjCWBQe3Yss08gzBAzpnBQs5nBDyziz/Agevg2UVENwCiYX18hcz0xkoE84yKnSs+yrFdrK7fQR54k1wwM5yL3e0akw6BwdxoHcglIqxMIPHzZXAI77dxmDoZwjSCeT9H25FQ2wkIbjiduWhXsD+KFKDfmB3qc0HyU/ZPefUTkZBFtCQh18M0agNBvZ8IJaDDaNK6YnUVQ7RXpVy4TN8nRz4n5pv2w54QXjPtWVA1dU/iSzbKyAvhvourH6fTQs+rnLXzlJDpd96lYV6INNbobMpRAH40n8f/xljWpiwJmNK0QLlae8/RnijJ/nPOykA/ik75+ykxeebAqqvilO9ZKIPqtOR3ZEKmsFqDiOreQ3IVudZEEUj4mn8ysM5fFg1zfRpY6kL1iBhMZFHavRxtGXFIWcqtH1PYB7pi+c7oUAKHo6ntEk9KgQWDhEBXtRtTWGwvGS0lEKi3sNb0g3sZWhwtQ=
-    template:
-    - '<a href="https://travis-ci.org/%{repository}/builds/%{build_id}">%{repository}
-      Build %{build_number}</a> on branch <i>%{branch}</i> by %{author}: <strong>%{message}</strong>
-      <a href="https://github.com/%{repository}/commits/%{commit}">View on GitHub</a>'
-    format: html
+  - bash <(curl -s https://codecov.io/bash) 
