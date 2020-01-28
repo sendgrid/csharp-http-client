@@ -2,6 +2,22 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <VersionPrefix>3.4.1</VersionPrefix>
+    <AssemblyName>SendGrid.CSharp.HTTP.Client</AssemblyName>
+    <Authors>Elmer Thomas;Twilio DX Team</Authors>
+    <Company>Twilio SendGrid</Company>
+    <Product>Twilio SendGrid</Product>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://sendgrid.com/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/sendgrid/csharp-http-client.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageIconUrl>https://sendgrid.com/wp-content/themes/sgdotcom/pages/resource/brand//2016/SendGrid-Logomark.png</PackageIconUrl>
+    <PackageDescription>Quickly and easily access any REST or REST-like API using a fluent interface via method chaining and reflection.</PackageDescription>
+    <PackageReleaseNotes>Please see: https://github.com/sendgrid/csharp-http-client/releases</PackageReleaseNotes>
+    <PackageTags>Twilio;SendGrid;Email;Mail;Microsoft;Azure;Transactional;.NET Core</PackageTags>
+    <Copyright>Twilio SendGrid, Inc. 2020</Copyright>
+  </PropertyGroup>
+  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{26C4841F-EC62-4EC7-B16E-3A7386EA36DC}</ProjectGuid>
@@ -40,7 +56,7 @@
     <SignAssembly Condition="Exists('$(AssemblyOriginatorKeyFile)')">true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>csharphttpclient.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>../csharphttpclient.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -60,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="csharphttpclient.pfx" />
+    <None Include="csharphttpclient.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
