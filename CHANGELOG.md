@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2020-01-28] Version 3.4.2
+--------------------------
+**Library - Chore**
+- [PR #95](https://github.com/sendgrid/csharp-http-client/pull/95): updates for auto-deploy via Travis CI. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+- [PR #93](https://github.com/sendgrid/csharp-http-client/pull/93): prep the repo for automated releasing. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+- [PR #71](https://github.com/sendgrid/csharp-http-client/pull/71): Adds a  Deploy Travis task that publishes to NuGet. Thanks to [@Gimly](https://github.com/Gimly)!
+
+**Library - Fix**
+- [PR #94](https://github.com/sendgrid/csharp-http-client/pull/94): nuget push flag. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+
+
 [2019-08-14] Version 3.4.1
 --------------------------
 ### Added
