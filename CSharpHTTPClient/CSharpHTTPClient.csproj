@@ -40,7 +40,7 @@
     <SignAssembly Condition="Exists('$(AssemblyOriginatorKeyFile)')">true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>csharphttpclient.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>../csharphttpclient.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
