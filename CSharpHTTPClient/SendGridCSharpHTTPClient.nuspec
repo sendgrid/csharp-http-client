@@ -7,7 +7,7 @@
     <owners>$authors$</owners>
     <version>$version$</version>
     <projectUrl>https://sendgrid.com/</projectUrl>
-    <iconUrl>https://sendgrid.com/wp-content/themes/sgdotcom/pages/resource/brand//2016/SendGrid-Logomark.png</iconUrl>
+    <icon>https://sendgrid.com/wp-content/themes/sgdotcom/pages/resource/brand//2016/SendGrid-Logomark.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <copyright>Copyright Twilio SendGrid 2020</copyright>
     <description>$description$</description>
