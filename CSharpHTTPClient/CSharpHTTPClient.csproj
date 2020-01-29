@@ -4,15 +4,12 @@
   <PropertyGroup>
     <Version>3.4.2</Version>
     <AssemblyName>SendGrid.CSharp.HTTP.Client</AssemblyName>
-    <Author>Elmer Thomas;Twilio DX Team</Author>
     <Company>Twilio SendGrid</Company>
     <Product>Twilio SendGrid</Product>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://sendgrid.com/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/sendgrid/csharp-http-client.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageIconUrl>https://sendgrid.com/wp-content/themes/sgdotcom/pages/resource/brand//2016/SendGrid-Logomark.png</PackageIconUrl>
-    <Description>Quickly and easily access any REST or REST-like API using a fluent interface via method chaining and reflection.</Description>
     <PackageReleaseNotes>Please see: https://github.com/sendgrid/csharp-http-client/releases</PackageReleaseNotes>
     <PackageTags>Twilio;SendGrid;Email;Mail;Microsoft;Azure;Transactional;.NET Core</PackageTags>
     <Copyright>Twilio SendGrid, Inc. 2020</Copyright>
@@ -77,6 +74,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="csharphttpclient.snk" />
+    <None Include="SendGridCSharpHTTPClient.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
