@@ -1,18 +1,4 @@
 language: csharp
-dotnet: 2.1.803
-solution: CSharpHTTPClient/CSharpHTTPClient.sln
-os: linux
-dist: bionic
-mono: latest
-sudo: required
-
-before_install:
-  - mkdir -p .nuget
-  - wget -O .nuget/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
-
-before_script:
-  # https://github.com/dotnet/sdk/issues/335
-  - if test "$TRAVIS_OS_NAME" == "osx"; then export FrameworkPathOverride=/Library/Frameworks/Mono.framework/Versions/Current/lib/mono/4.5/; else export FrameworkPathOverride=/usr/lib/mono/4.5/; fi
 
 script:
   - make test
