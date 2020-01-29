@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2020-01-29] Version 3.4.4
+--------------------------
+**Library - Fix**
+- [PR #97](https://github.com/sendgrid/csharp-http-client/pull/97): update deploy path for .nupkg. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+
+
 [2020-01-29] Version 3.4.3
 --------------------------
 **Library - Chore**
