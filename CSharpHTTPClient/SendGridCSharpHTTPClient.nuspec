@@ -5,7 +5,7 @@
     <authors>$authors$</authors>
     <title>$title$</title>
     <owners>$authors$</owners>
-    <version>$version$</version>
+    <version>3.4.2</version>
     <projectUrl>https://sendgrid.com/</projectUrl>
     <icon>sendgrid-logo.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
