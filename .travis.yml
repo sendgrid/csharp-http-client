@@ -9,7 +9,7 @@ after_success:
 deploy:
   skip_cleanup: true
   provider: script
-  script: nuget push ./CSharpHTTPClient/bin/Release/*.nupkg -ApiKey $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
+  script: nuget push /home/travis/build/sendgrid/csharp-http-client/*.nupkg -ApiKey $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
   on:
     branch: master
     tags: true
