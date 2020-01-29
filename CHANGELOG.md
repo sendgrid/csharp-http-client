@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2020-01-29] Version 3.4.3
+--------------------------
+**Library - Chore**
+- [PR #96](https://github.com/sendgrid/csharp-http-client/pull/96): add nuget pack. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+
+
 [2020-01-28] Version 3.4.2
 --------------------------
 **Library - Chore**
