@@ -2,9 +2,9 @@
 <package >
   <metadata>
     <id>SendGrid.CSharp.HTTP.Client</id>
-    <authors>$author$</authors>
+    <authors>$authors$</authors>
     <title>$title$</title>
-    <owners>$author$</owners>
+    <owners>$authors$</owners>
     <version>$version$</version>
     <projectUrl>https://sendgrid.com/</projectUrl>
     <iconUrl>https://sendgrid.com/wp-content/themes/sgdotcom/pages/resource/brand//2016/SendGrid-Logomark.png</iconUrl>
