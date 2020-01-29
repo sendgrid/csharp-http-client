@@ -11,6 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <copyright>Copyright Twilio SendGrid 2020</copyright>
     <description>$description$</description>
+    <license type="expression">MIT</license>
     <tags>Twilio SendGrid Email Mail Microsoft Azure Transactional .NET Core</tags>
   </metadata>
 </package>
