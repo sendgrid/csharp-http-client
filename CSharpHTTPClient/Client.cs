@@ -183,29 +183,6 @@ namespace SendGrid.CSharp.HTTP.Client
 
         }
 
-        /// Factory method to return the right HttpClient settings.
-        /// </summary>
-        /// <returns>Instance of HttpClient</returns>
-        private HttpClient BuildHttpClient()
-        {
-            // Add the WebProxy if set
-            if (WebProxy != null)
-            {
-                var httpClientHandler = new HttpClientHandler()
-                {
-                    Proxy = WebProxy,
-                    PreAuthenticate = true,
-                    UseDefaultCredentials = false,
-                };
-
-                return new HttpClient(httpClientHandler);
-            }
-
-            return _httpClient;
-        }
-
-        /// <summary>
-
         /// <summary>
         ///     Add the authorization header, override to customize
         /// </summary>
