@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2020-02-19] Version 3.4.6
+--------------------------
+**Library - Chore**
+- [PR #99](https://github.com/sendgrid/csharp-http-client/pull/99): remove unused function. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+
+
 [2020-02-05] Version 3.4.5
 --------------------------
 **Library - Chore**
