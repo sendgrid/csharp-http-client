@@ -117,9 +117,11 @@ We were inspired by the work done on [birdy](https://github.com/inueni/birdy) an
 <a name="about"></a>
 # About
 
-csharp-http-client is guided and supported by the Twilio SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
-
 csharp-http-client is maintained and funded by Twilio SendGrid, Inc. The names and logos for csharp-http-client are trademarks of Twilio SendGrid, Inc.
+
+If you need help installing or using the library, please check the [Twilio SendGrid Support Help Center](https://support.sendgrid.com).
+
+If you've instead found a bug in the library or would like new features added, go ahead and open issues or pull requests against this repo!
 
 # License
 [The MIT License (MIT)](LICENSE.md)

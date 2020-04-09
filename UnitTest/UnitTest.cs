@@ -107,7 +107,7 @@ namespace UnitTest
             var licensePath = Path.Combine("..", "..", "..", "LICENSE.md");
             string line = File.ReadLines(licensePath).Skip(2).Take(1).First();
 
-            Assert.AreEqual(DateTime.Now.Year.ToString(), line.Substring(19, 4));
+            Assert.AreEqual(DateTime.Now.Year.ToString(), line.Substring(14, 4));
         }
     }
 }

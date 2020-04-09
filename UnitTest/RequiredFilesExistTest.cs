@@ -52,9 +52,9 @@ namespace SendGrid.Tests
           Assert.True(File.Exists("./CONTRIBUTING.md"));
       }
 
-      // ./.github/ISSUE_TEMPLATE
+      // ./ISSUE_TEMPLATE
       public void checkIssuesTemplateExists() {
-          Assert.True(File.Exists("./.github/ISSUE_TEMPLATE"));
+          Assert.True(File.Exists("./ISSUE_TEMPLATE.md"));
       }
 
       // ./LICENSE.md
@@ -62,9 +62,9 @@ namespace SendGrid.Tests
           Assert.True(File.Exists("./LICENSE.md"));
       }
 
-      // ./.github/PULL_REQUEST_TEMPLATE
+      // ./PULL_REQUEST_TEMPLATE.md
       public void checkPullRequestExists() {
-          Assert.True(File.Exists("./.github/PULL_REQUEST_TEMPLATE"));
+          Assert.True(File.Exists("./PULL_REQUEST_TEMPLATE.md"));
       }
 
       // ./README.md
