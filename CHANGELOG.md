@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2020-04-15] Version 3.4.7
+--------------------------
+**Library - Docs**
+- [PR #100](https://github.com/sendgrid/csharp-http-client/pull/100): baseline all the templated markdown docs. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
 [2020-02-19] Version 3.4.6
 --------------------------
 **Library - Chore**
