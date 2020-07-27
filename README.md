@@ -25,6 +25,7 @@ If you are looking for the Twilio SendGrid API client library, please see [this 
 
 <a name="announcements"></a>
 # Announcements
+**The default branch name for this repository has been changed to `main` as of 07/27/2020.**
 
 All updates to this project are documented in our [CHANGELOG](https://github.com/sendgrid/csharp-http-client/blob/master/CHANGELOG.md).
 
