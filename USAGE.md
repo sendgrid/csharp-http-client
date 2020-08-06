@@ -1,6 +1,6 @@
 # Usage
 
-- [Example Code](https://github.com/sendgrid/csharp-http-client/blob/HEAD/Example/Example.cs)
+- [Example Code](Example/Example.cs)
 
 ## Environment Variables 
 

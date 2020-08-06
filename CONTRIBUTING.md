@@ -68,7 +68,7 @@ Open `csharp-http-client/CSharpHTTPClient/CSharpHTTPClient.sln`
 
 ##### Execute: #####
 
-SSee the [Example project](https://github.com/sendgrid/csharp-http-client/tree/HEAD/Example) to get started quickly.
+SSee the [Example project](Example) to get started quickly.
 
 <a name="understanding-the-codebase"></a>
 ## Understanding the Code Base
@@ -79,20 +79,20 @@ Working examples that demonstrate usage.
 
 **/CSharpHTTPClient/Client.cs**
 
-An HTTP client with a fluent interface using method chaining and reflection. By returning a new object on [TryGetMember](https://github.com/sendgrid/csharp-http-client/blob/HEAD/CSharpHTTPClient/Client.cs#L191) and [_()](https://github.com/sendgrid/csharp-http-client/blob/HEAD/CSharpHTTPClient/Client.cs#L180), we can dynamically build the URL using method chaining and [TryGetMember](https://github.com/sendgrid/csharp-http-client/blob/HEAD/CSharpHTTPClient/Client.cs#L191) allows us to dynamically receive the method calls to achieve reflection.
+An HTTP client with a fluent interface using method chaining and reflection. By returning a new object on [TryGetMember](CSharpHTTPClient/Client.cs#L191) and [_()](CSharpHTTPClient/Client.cs#L180), we can dynamically build the URL using method chaining and [TryGetMember](CSharpHTTPClient/Client.cs#L191) allows us to dynamically receive the method calls to achieve reflection.
 
 This allows for the following mapping from a URL to a method chain:
 
-`/api_client/{api_key_id}/version` maps to `client.api_client._(api_key_id).version.<method>()` where <method> is a supported [Method](https://github.com/sendgrid/csharp-http-client/blob/HEAD/CSharpHTTPClient/Client.cs#L71).
+`/api_client/{api_key_id}/version` maps to `client.api_client._(api_key_id).version.<method>()` where <method> is a supported [Method](CSharpHTTPClient/Client.cs#L71).
 
 <a name="testing"></a>
 ## Testing
 
 All PRs require passing tests before the PR will be reviewed.
 
-All test files are in the [`UnitTest`](https://github.com/sendgrid/csharp-http-client/tree/HEAD/UnitTest) directory.
+All test files are in the [`UnitTest`](UnitTest) directory.
 
-For the purposes of contributing to this repo, please update the [`UnitTest.cs`](https://github.com/sendgrid/csharp-http-client/blob/HEAD/UnitTest/UnitTest.cs) file with unit tests as you modify the code.
+For the purposes of contributing to this repo, please update the [`UnitTest.cs`](UnitTest/UnitTest.cs) file with unit tests as you modify the code.
 
 From the Visual Studio menu: `Tests->Run->All Tests`
 
