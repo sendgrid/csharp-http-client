@@ -1,6 +1,6 @@
-![SendGrid Logo](https://github.com/sendgrid/sendgrid-python/raw/master/twilio_sendgrid_logo.png)
+![SendGrid Logo](twilio_sendgrid_logo.png)
 
-[![Travis Badge](https://travis-ci.org/sendgrid/csharp-http-client.svg?branch=master)](https://travis-ci.org/sendgrid/csharp-http-client)
+[![Travis Badge](https://travis-ci.org/sendgrid/csharp-http-client.svg?branch=main)](https://travis-ci.org/sendgrid/csharp-http-client)
 [![NuGet](https://img.shields.io/nuget/v/SendGrid.CSharp.Http.Client.svg)](https://www.nuget.org/packages/SendGrid.CSharp.HTTP.Client)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 [![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
@@ -27,7 +27,7 @@ If you are looking for the Twilio SendGrid API client library, please see [this 
 # Announcements
 **The default branch name for this repository has been changed to `main` as of 07/27/2020.**
 
-All updates to this project are documented in our [CHANGELOG](https://github.com/sendgrid/csharp-http-client/blob/master/CHANGELOG.md).
+All updates to this project are documented in our [CHANGELOG](CHANGELOG.md).
 
 <a name="installation"></a>
 # Installation
@@ -45,7 +45,7 @@ PM> Install-Package SendGrid.CSharp.Http.Client
 ```
 
 Once you have the library properly referenced in your project, you can include calls to them in your code.
-For a sample implementation, check the [Example](https://github.com/sendgrid/csharp-http-client/tree/master/Example) folder.
+For a sample implementation, check the [Example](Example) folder.
 
 Add the following namespace to use the library:
 ```csharp
@@ -101,13 +101,13 @@ If you are interested in the future direction of this project, please take a loo
 <a name="contribute"></a>
 # How to Contribute
 
-We encourage contribution to our projects, please see our [CONTRIBUTING](https://github.com/sendgrid/csharp-http-client/blob/master/CONTRIBUTING.md) guide for details.
+We encourage contribution to our projects, please see our [CONTRIBUTING](CONTRIBUTING.md) guide for details.
 
 Quick links:
 
-- [Feature Request](https://github.com/sendgrid/csharp-http-client/blob/master/CONTRIBUTING.md#feature-request)
-- [Bug Reports](https://github.com/sendgrid/csharp-http-client/blob/master/CONTRIBUTING.md#submit-a-bug-report)
-- [Improvements to the Codebase](https://github.com/sendgrid/csharp-http-client/blob/master/CONTRIBUTING.md#improvements-to-the-codebase)
+- [Feature Request](CONTRIBUTING.md#feature-request)
+- [Bug Reports](CONTRIBUTING.md#submit-a-bug-report)
+- [Improvements to the Codebase](CONTRIBUTING.md#improvements-to-the-codebase)
 
 <a name="thanks"></a>
 # Thanks
