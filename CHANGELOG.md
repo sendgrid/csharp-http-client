@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2020-08-19] Version 3.4.8
+--------------------------
+**Library - Chore**
+- [PR #101](https://github.com/sendgrid/csharp-http-client/pull/101): update GitHub branch references to use HEAD. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+
+
 [2020-04-15] Version 3.4.7
 --------------------------
 **Library - Docs**
