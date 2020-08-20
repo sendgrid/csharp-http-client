@@ -34,7 +34,7 @@ All updates to this project are documented in our [CHANGELOG](CHANGELOG.md).
 
 ## Prerequisites
 
-- .NET version 4.5.2
+- .NET Framework 4.5+
 
 ## Install Package
 
