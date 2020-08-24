@@ -17,7 +17,6 @@ If you are looking for the Twilio SendGrid API client library, please see [this 
 * [Quick Start](#quick-start)
 * [Library Usage Documentation](USAGE.md)
 * [Use Cases](#use-cases)
-* [Roadmap](#roadmap)
 * [How to Contribute](#contribute)
 * [Thanks](#thanks)
 * [About](#about)
@@ -92,11 +91,6 @@ Console.WriteLine(response.Headers.ToString());
 # Use Cases
 
 You can find a selection of use cases for this library in our [Use Cases](/UseCases/README.md) directory.
-
-<a name="roadmap"></a>
-# Roadmap
-
-If you are interested in the future direction of this project, please take a look at our [milestones](https://github.com/sendgrid/csharp-http-client/milestones). We would love to hear your feedback.
 
 <a name="contribute"></a>
 # How to Contribute
