@@ -30,7 +30,7 @@ namespace UnitTest
                 response.StatusCode = HttpStatusCode.OK;
 
                 cancellationToken.ThrowIfCancellationRequested();
-                
+
                 return new Response(response.StatusCode, response.Content, response.Headers);
             }, cancellationToken);
         }
@@ -104,7 +104,7 @@ namespace UnitTest
         [Test]
         public void TestLicenseEndYear()
         {
-            var licensePath = Path.Combine("..", "..", "..", "LICENSE.md");
+            var licensePath = Path.Combine("..", "..", "..", "LICENSE");
             string line = File.ReadLines(licensePath).Skip(2).Take(1).First();
 
             Assert.AreEqual(DateTime.Now.Year.ToString(), line.Substring(14, 4));
