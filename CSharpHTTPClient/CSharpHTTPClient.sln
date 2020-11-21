@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpHTTPClient", "CSharpHTTPClient.csproj", "{26C4841F-EC62-4EC7-B16E-3A7386EA36DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "..\Example\Example.csproj", "{490AD14D-B821-435A-BEC8-F4DFE34E6556}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "..\UnitTest\UnitTest.csproj", "{DF845C59-4B39-4A8A-AC89-E5336B57076B}"
 EndProject
 Global
