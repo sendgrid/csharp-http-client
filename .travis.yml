@@ -1,19 +1,16 @@
 language: csharp
-
 script:
-  - make test
-
+- make test
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
+- bash <(curl -s https://codecov.io/bash)
 deploy:
   skip_cleanup: true
   provider: script
-  script: nuget push /home/travis/build/sendgrid/csharp-http-client/*.nupkg -ApiKey $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
+  script: nuget push /home/travis/build/sendgrid/csharp-http-client/*.nupkg -ApiKey
+    $NUGET_API_KEY -Source https://api.nuget.org/v3/index.json
   on:
     branch: main
     tags: true
-
 notifications:
   slack:
     if: branch = main
@@ -21,4 +18,4 @@ notifications:
     on_success: never
     on_failure: change
     rooms:
-      - secure: DCZnx11SiqNpOi/9tkno+uo785sIWNsGrUpBZWqyO956K1PPcYqWEwgBtX8QBCmZw+uINgtB00mm9hG6m/JHWAMQSAF6flIIteFJHvNyNFRNvOUBfIX/FZQvVURBmM69sXrj0oU0zg8DPk5F659fDvCamkmemG9cxzHJJwQR36OAmMGd+slH7pCtsEh87mJX/MbihGxS4uxxXdAacVbRVjUZcmeeOp8v95wpMhJY567+neynd52M88B8L5fhfkDJz+D4sQJHaoZgEx8RVoJw1f1H3j33Sam8kx9VYEe/KmtpRE2xS1UrXETu+j5P865MwVTznnCZPEntKOUjoBrAfNSEVaSqYUMKTb4Pyt40XbHzp0NM9NTbqOA83CFuQiruNJ375eDZfYJnZb43qk4vJapJfZOa9+32ZMbRtkDDQ1uVYkTFcVpTW1A0AFqlsF7Wj084LOUO/X8YGZ3ZjcGhdze2RY7il1Ghpr1RNfuQMC8W+dX2q7KiWX0BA5jmCnME0Rg8bwsHJSucSa3uDdINPlMtjx91BkDOfCWrnwrqiAJuFCRvVjnfNcoWGl0wcpOgrUrGNE7ZjR0VnvQ9ON+8zhS+CBWYyU2QpRwWeJI6nNUUehoFz4l8EFpzvEQ6wL+NPSd70rnLFrEy/p+41Q8WGFA97QbF0SwM/KCAeAP3S2M=
+      secure: orpGfECBe6dSCCkitAIr7uoOYD/XAJnnWaPtOmMF42EO18KwuU1TCGVk3TpIlbEAU8e+iLc9lXdkSXmr5+aV4825fcux+OQ8LlRUWS88Xw37gS6JAj8HC5a0zUByt3+qmz5yW948nMs+iK2lPxTyymtOfMl89sYgbRYeGOH6zK37uHJXJtgD5QLgmNmmEXYWAxIMGzu0J9ZJyn5svLCd5+9CejAghR/NDP7E7ioca1CvDPB7HLQrRyvB0HBzS/ad/+PCciIg23scZFlMXdcE1Dqhgn8z6qyixw2sXjhu2fBOJy+kZIiDi4ZxbzCw3MMlcT98n7CSB/rEkAJgUBA4oeF6i9tjQt/JSEXwvQGi3cRfS79jtUePKeZFZOSYbq8sD4cFgA1vnRxAZ0jDB2yw2i+YVMSOrEig35KbV4H/SeQIgU64g3Rd7RQncemCcBi1TntBf4J7KO0wvmB1gGifL4MNCvdU0ZV2CHJ+O71l1xO4t91QWmTp5mFW1XF7SK0iL78mI8rG0bgfSSP2NTjWac7xLtoQBVrRK99HN988cYwM8cv3UwRBzYSrtQBEKWlDVr/sJRoRRHjYVPNhaNYVG8toxnoq1BzGuGtfjIMzctiFdIZRKOCutJZnvJ8nycaieWEmcJtFdxQsIXxYx1r6NgBV4C7v7jjIYsPtxKUpxR8=
