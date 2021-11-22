@@ -19,8 +19,8 @@ jobs:
 
       - name: Publish package to NuGet
         run: |
-          make install
-          dotnet nuget push **/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+          make test
+          dotnet nuget push **/SendGrid*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
 
   notify-on-failure:
     name: Slack notify on failure
