@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2021-12-01] Version 3.4.9
+--------------------------
+**Library - Chore**
+- [PR #105](https://github.com/sendgrid/csharp-http-client/pull/105): fix gh action release workflow. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+- [PR #104](https://github.com/sendgrid/csharp-http-client/pull/104): migrate to GitHub Actions. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+
 [2020-08-19] Version 3.4.8
 --------------------------
 **Library - Chore**
