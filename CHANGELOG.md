@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2022-01-12] Version 3.4.10
+---------------------------
+**Library - Chore**
+- [PR #106](https://github.com/sendgrid/csharp-http-client/pull/106): update license year. Thanks to [@JenniferMah](https://github.com/JenniferMah)!
+
+
 [2021-12-01] Version 3.4.9
 --------------------------
 **Library - Chore**
