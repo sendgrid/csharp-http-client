@@ -39,6 +39,13 @@ jobs:
         with:
           dotnet-version: '3.1.x'
 
+      - name: Create GitHub Release
+        uses: sendgrid/dx-automator/actions/release@main
+        with:
+          footer: '**[NuGet](https://www.nuget.org/packages/SendGrid.CSharp.HTTP.Client/${version})**'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish package to NuGet
         run: |
           make test
