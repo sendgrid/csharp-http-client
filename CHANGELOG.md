@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2022-02-09] Version 3.4.11
+---------------------------
+**Library - Chore**
+- [PR #108](https://github.com/sendgrid/csharp-http-client/pull/108): add gh release to workflow. Thanks to [@shwetha-manvinkurke](https://github.com/shwetha-manvinkurke)!
+- [PR #107](https://github.com/sendgrid/csharp-http-client/pull/107): merge test and deploy workflows. Thanks to [@shwetha-manvinkurke](https://github.com/shwetha-manvinkurke)!
+
+
 [2022-01-12] Version 3.4.10
 ---------------------------
 **Library - Chore**
