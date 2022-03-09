@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+[2022-03-09] Version 3.4.12
+---------------------------
+**Library - Chore**
+- [PR #109](https://github.com/sendgrid/csharp-http-client/pull/109): push Datadog Release Metric upon deploy success. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+
 [2022-02-09] Version 3.4.11
 ---------------------------
 **Library - Chore**
