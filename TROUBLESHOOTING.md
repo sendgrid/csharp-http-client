@@ -1,6 +1,4 @@
-If you have a non-library Twilio SendGrid issue, please contact our [support team](https://support.sendgrid.com).
-
-If you can't find a solution below, please open an [issue](https://github.com/sendgrid/csharp-http-client/issues).
+If you have a SendGrid issue, please contact our [support team](https://support.sendgrid.com).
 
 ## Table of Contents
 
