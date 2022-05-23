@@ -47,11 +47,6 @@ namespace SendGrid.Tests
           Assert.True(File.Exists("./CONTRIBUTING.md"));
       }
 
-      // ./ISSUE_TEMPLATE
-      public void checkIssuesTemplateExists() {
-          Assert.True(File.Exists("./ISSUE_TEMPLATE.md"));
-      }
-
       // ./LICENSE
       public void checkLicenseExists() {
           Assert.True(File.Exists("./LICENSE"));
